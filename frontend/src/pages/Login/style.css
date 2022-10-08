@@ -1,0 +1,106 @@
+.login-main-div {
+    display: flex;
+    flex-direction: row;
+    margin: auto 10%;
+    justify-content: space-evenly;
+}
+
+#logo-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 220px;
+}
+
+#logo-div h1 {
+    font-size: 3rem;
+    color: var(--primary-success500);
+    margin: 0 0 125px 0;
+}
+
+#login-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 440px;
+    margin-top: 45px;
+}
+
+#login-div h1 {
+    font-size: 2.4rem;
+    color: var(--primary-success800);
+    margin-bottom: 120px;
+}
+
+#login-div form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    justify-content: space-between;
+}
+
+#login-div form input{
+    max-width: 430px;
+    height: 40px;
+    border: 2px solid var(--neutral400);
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+#login-div form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#login-div form div #conect{
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+    cursor: pointer;
+    accent-color: var(--primary-success600);
+}
+
+#login-div form  div a{
+    text-decoration: none;
+    color: var(--primary-success600);
+}
+
+form input[type="submit"]{
+    width: auto;
+    max-width: 440px !important;
+    background-color: var(--primary-success700);
+    border: none !important;
+    color: var(--neutral50);
+}
+
+#ou-line {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+#ou-line hr{
+    width: 45%;
+    border: 1px solid var(--neutral500);
+}
+
+#social-signin{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 25px;
+}
+
+#create{
+    margin-top: 35px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--primary-success600);
+}
