@@ -1,8 +1,8 @@
-.login-main-div {
+.create-main-div {
     display: flex;
     flex-direction: column;
     margin: auto 10%;
-    margin-bottom: 8rem;
+    margin-bottom: 20rem;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -20,7 +20,7 @@
     margin: 0 0 2em 0;
 }
 
-#login-div {
+#create-div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,13 +29,13 @@
     margin-top: 45px;
 }
 
-#login-div h1 {
+#create-div h1 {
     font-size: 2.4rem;
     color: var(--primary-success800);
     margin-bottom: 120px;
 }
 
-#login-div form {
+#create-div form {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -43,42 +43,38 @@
     justify-content: space-between;
 }
 
-#login-div form div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#ou-line {
+#create-div form div{
     display: flex;
     flex-direction: row;
     width: 100%;
-    align-items: center;
+    height: 40px;
+    margin-top: 2rem;
     justify-content: space-between;
-    margin-top: 40px;
 }
 
-#ou-line hr{
-    width: 43%;
-    border: 1px solid var(--neutral500);
-    background-color: var(--neutral500);
+#create-div > form > label {
+    font-weight: 600;
 }
 
-#social-signin{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
-    margin-top: 25px;
+#create-div > form > div > button {
+    width: 35%;
+    border-radius: 5px;
+    border: none;
+    color: var(--neutral700);
+    background-color: var(--neutral200);
 }
 
-#create{
-    margin-top: 35px;
-    font-size: 1.3rem;
+#create-div > form > div > #create-button {
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    color: var(--neutral50);
+    background-color: var(--primary-success700);
 }
 
 @media screen and (min-width: 1080px) {
-    .login-main-div {
+    .create-main-div {
         flex-direction: row;
     }
 }
+
