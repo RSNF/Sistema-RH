@@ -51,7 +51,6 @@ export const Login = () => {
               name="password"
               placeholder="Senha"
             />
-            
           </span>
 
           <div>
@@ -88,7 +87,13 @@ export const Login = () => {
           </a>
         </div>
 
-        <a href="#" id="create">
+        <a
+          onClick={() => {
+            navigate("/criar-conta");
+            navigate(0);
+          }}
+          id="create"
+        >
           Criar conta
         </a>
       </div>

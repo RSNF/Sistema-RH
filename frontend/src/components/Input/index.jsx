@@ -13,7 +13,7 @@ export const Input = ({
   register,
 }) => {
 
-  const [enableShow, setValue] = useState(true);
+  const [enableShow, setValue] = useState(false);
   function showPassword() {
     const input = document.getElementById(name);
     

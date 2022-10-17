@@ -84,6 +84,7 @@
 #create {
     margin-top: 35px;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1080px) {
