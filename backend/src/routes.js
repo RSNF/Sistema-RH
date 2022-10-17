@@ -15,5 +15,6 @@ const prisma = new PrismaClient();
 routes.get("/users", userController.list)
 routes.get("/users/:id", userController.show)
 routes.post("/users", userController.create)
+routes.post("/login", userController.signIn)
 
 module.exports = routes;

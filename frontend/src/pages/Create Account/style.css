@@ -66,6 +66,7 @@
 
 #create-div > form > div > #create-button {
     width: 60%;
+    height: 40px;
     border-radius: 5px;
     border: none;
     color: var(--neutral50);

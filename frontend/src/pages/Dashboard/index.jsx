@@ -1,6 +1,10 @@
+import { SideBar } from '../../components/SideBar';
+import './style.css';
 
 export const Dashboard = () => {
-    return (
-        <div>Dashboard Page</div>
-    );
-}
+  return (
+    <div>
+      <SideBar/>
+    </div>
+  );
+};

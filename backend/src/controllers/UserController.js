@@ -9,8 +9,8 @@ const prisma = new PrismaClient();
 module.exports = {
     async list(req, res) {
         const result = await prisma.users.findMany();
-        
-        return res.json(result);
+
+        return res.json(...result);
     },
     async show(req, res) {
         const { id } = req.params;
@@ -21,6 +21,27 @@ module.exports = {
 
         return res.json(result);
     },
+    async signIn(req, res) {
+        const { email, senha } = req.body;
+
+        const user = await prisma.users.findUnique({
+            where: {
+                email: email
+            }
+        });
+        
+        if (!user) {
+            console.log('User not registered')
+        }
+
+        const checkPassword = bcrypt.compareSync(senha, user.senha)
+        if (!checkPassword) {
+            console.log('Email address or password not valid')
+        } 
+        delete user.senha
+
+        return res.json(user);
+    },
     async create(req, res) {
         const { nome, email, senha, } = req.body;
         const slug = slugify(nome, { lower: true });
@@ -29,7 +50,7 @@ module.exports = {
 
         await prisma.users.create({
             data: {
-                id: crypto.randomBytes(4).toString('HEX'),
+                id: crypto.randomBytes(4).toString("HEX"),
                 slug: slug,
                 nome: nome,
                 email: email,
@@ -37,10 +58,10 @@ module.exports = {
                 created_at: created_at,
                 updated_at: updated_at
             }
-        }).then(async (_users, callback = () => {}) => {
+        }).then(async (_users, callback = () => { }) => {
             await prisma.$disconnect();
             callback(res.status(200).send());
-        }).catch(async (e, callback = () => {}) => {
+        }).catch(async (e, callback = () => { }) => {
             console.error(e);
             await prisma.$disconnect();
             callback(res.status(500).send());

@@ -1,13 +1,16 @@
-import './reset.css';
-import './global.css';
-import Router from './router';
-import { Footer } from './components/Footer';
+import "./global.css";
+import Router from "./router";
+import { Footer } from "./components/Footer/index";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   return (
-    <><div className="App">
-      <Router />
-    </div><Footer /></>
+    <AuthProvider>
+      <div className="App">
+        <Router />
+      </div>
+      <Footer />
+    </AuthProvider>
   );
 }
 
