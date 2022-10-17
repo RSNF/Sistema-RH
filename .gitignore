@@ -1,2 +1,4 @@
 node_modules
 .env
+rh.db
+rh.db-journal

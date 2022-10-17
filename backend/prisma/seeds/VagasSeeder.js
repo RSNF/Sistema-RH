@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 async function vagasSeeder() {
     await prisma.vagas.upsert({
-        where: { slug: "" },
+        where: { slug: "lorem-ipsum-dolor" },
         update: { updated_at: new Date().toISOString() },
         create: {
             id: crypto.randomBytes(4).toString("HEX"),
@@ -15,7 +15,7 @@ async function vagasSeeder() {
             descricao: "Lorem ipsum dolor lorem ipsum dolor",
             objetivos: "{dummy: \"lorem ispsum dolor\"}",
             candidatos: {
-                connect: { email: "fulano@email.com" },
+                connect: { slug: "sicrano-santos" },
             },
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
@@ -23,6 +23,4 @@ async function vagasSeeder() {
     })
 }
 
-module.exports = async function() {
-    await vagasSeeder()
-}
+module.exports = vagasSeeder

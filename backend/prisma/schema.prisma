@@ -10,27 +10,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Vagas {
-  id         String    @id
-  slug       String    @unique
-  titulo     String
-  descricao  String
-  objetivos  String
-  candidatos Users[]
-  created_at DateTime?
-  updated_at DateTime?
-}
-
-model Users {
+model Usuarios {
   id         String    @id
   slug       String    @unique
   nome       String
   email      String    @unique
   senha      String
-  vagas      Vagas?    @relation(fields: [vagas_id], references: [id])
+  vagas_id   String?
+  created_at DateTime?
+  updated_at DateTime?
+  Vagas      Vagas[]
+
+  @@index([slug])
+}
+
+model Vagas {
+  id         String       @id
+  slug       String       @unique
+  titulo     String
+  descricao  String
+  objetivos  String
+  usuario    Usuarios     @relation(fields: [usuariosId], references: [id])
+  candidatos Candidatos[]
+  created_at DateTime?
+  updated_at DateTime?
+  usuariosId String
+
+  @@index([slug])
+}
+
+model Candidatos {
+  id         String    @id
+  slug       String    @unique
+  nome       String
+  email      String
+  tel        String
+  vagas      Vagas[]
   vagas_id   String?
   created_at DateTime?
   updated_at DateTime?
 
-  @@index([email])
+  @@index([slug])
 }
