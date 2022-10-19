@@ -9,70 +9,67 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 module.exports = {
-  async list(_req, res) {
-    const result = await prisma.users.findMany();
+    async list(_req, res) {
+        const result = await prisma.usuarios.findMany();
 
-    return res.json(...result);
-  },
-  async show(req, res) {
-    const { id } = req.params;
+        return res.json(...result);
+    },
+    async show(req, res) {
+        const { id } = req.params;
 
-    const result = await prisma.users.findUnique({
-      where: { id: id },
-    });
+        const result = await prisma.usuarios.findUnique({
+            where: { id: id },
+        });
 
-    return res.json(result);
-  },
-  async signIn(req, res) {
-    const { email, senha } = req.body;
+        return res.json(result);
+    },
+    async signIn(req, res) {
+        const { email, senha } = req.body;
 
-    const user = await prisma.users.findUnique({
-      where: {
-        email: email,
-      },
-    });
+        const user = await prisma.usuarios.findUnique({
+            where: {
+                email: email,
+            },
+        });
 
-    if (!user) {
-      console.error("User not registered");
-    } else {
-      const checkPassword = bcrypt.compareSync(senha, user.senha);
+        if (!user) {
+            console.error("User not registered");
+        } else {
+            const checkPassword = bcrypt.compareSync(senha, user.senha);
 
-      if (!checkPassword) {
-        console.error("Email address or password not valid");
-      }
-    }
+            if (!checkPassword) {
+                console.error("Email address or password not valid");
+            }
+        }
 
-    delete user.senha;
+        delete user.senha;
 
-    return res.json(user);
-  },
-  async create(req, res) {
-    const { nome, email, senha } = req.body;
-    const slug = slugify(nome, { lower: true });
-    const created_at = new Date().toISOString();
-    const updated_at = new Date().toISOString();
+        return res.json(user);
+    },
+    async create(req, res) {
+        const { nome, email, senha } = req.body;
+        const slug = slugify(nome, { lower: true });
+        const created_at = new Date().toISOString();
+        const updated_at = new Date().toISOString();
 
-    await prisma.users
-      .create({
-        data: {
-          id: crypto.randomBytes(4).toString("HEX"),
-          slug: slug,
-          nome: nome,
-          email: email,
-          senha: bcrypt.hashSync(senha),
-          created_at: created_at,
-          updated_at: updated_at,
-        },
-      })
-      .then(async (_users, callback = () => {}) => {
-        await prisma.$disconnect();
-        callback(res.status(200).send());
-      })
-      .catch(async (e, callback = () => {}) => {
-        console.error(e);
-        await prisma.$disconnect();
-        callback(res.status(500).send());
-        process.exit(1);
-      });
-  },
+        await prisma.usuarios.create({
+            data: {
+                id: crypto.randomBytes(4).toString("HEX"),
+                slug: slug,
+                nome: nome,
+                email: email,
+                senha: bcrypt.hashSync(senha),
+                created_at: created_at,
+                updated_at: updated_at,
+            },
+        }).then(async (_users, callback = () => { }) => {
+            await prisma.$disconnect();
+            callback(res.status(200).send());
+        }).catch(async (e, callback = () => { }) => {
+            console.error(e);
+            await prisma.$disconnect();
+            callback(res.status(500).send());
+            process.exit(1);
+        });
+    },
 };

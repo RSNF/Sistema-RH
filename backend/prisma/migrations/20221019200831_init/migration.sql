@@ -7,8 +7,7 @@ CREATE TABLE "Usuarios" (
     "senha" TEXT NOT NULL,
     "vagas_id" TEXT,
     "created_at" DATETIME,
-    "updated_at" DATETIME,
-    CONSTRAINT "Usuarios_vagas_id_fkey" FOREIGN KEY ("vagas_id") REFERENCES "Vagas" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    "updated_at" DATETIME
 );
 
 -- CreateTable
@@ -19,7 +18,9 @@ CREATE TABLE "Vagas" (
     "descricao" TEXT NOT NULL,
     "objetivos" TEXT NOT NULL,
     "created_at" DATETIME,
-    "updated_at" DATETIME
+    "updated_at" DATETIME,
+    "usuariosId" TEXT NOT NULL,
+    CONSTRAINT "Vagas_usuariosId_fkey" FOREIGN KEY ("usuariosId") REFERENCES "Usuarios" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
