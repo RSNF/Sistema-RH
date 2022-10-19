@@ -7,7 +7,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 module.exports = {
-    async list(req, res) {
+    async list(_req, res) {
         const result = await prisma.users.findMany();
 
         return res.json(...result);
@@ -31,14 +31,16 @@ module.exports = {
         });
         
         if (!user) {
-            console.log('User not registered')
+            console.error('User not registered')
+        } else {
+            const checkPassword = bcrypt.compareSync(senha, user.senha);
+
+            if (!checkPassword) {
+                console.error('Email address or password not valid')
+            } 
         }
 
-        const checkPassword = bcrypt.compareSync(senha, user.senha)
-        if (!checkPassword) {
-            console.log('Email address or password not valid')
-        } 
-        delete user.senha
+        delete user.senha;
 
         return res.json(user);
     },
