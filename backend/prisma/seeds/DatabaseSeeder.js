@@ -1,10 +1,7 @@
+const prisma = require("../singleton");
 const usersSeeder = require("./UsersSeeder")
 const vagasSeeder = require("./VagasSeeder")
 const candidatosSeeder = require("./CandidatosSeeder");
-
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
 
 async function seeder() {
     await usersSeeder()

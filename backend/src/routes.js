@@ -1,10 +1,9 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const routes = express.Router();
 const userController = require("./controllers/UserController");
 
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
+routes.use(cookieParser());
 
 // COLOCAR MIDDLEWARES - Talvez
 // prisma.$use(async (params, next) => {
@@ -16,5 +15,6 @@ routes.get("/users", userController.list)
 routes.get("/users/:id", userController.show)
 routes.post("/users", userController.create)
 routes.post("/login", userController.signIn)
+routes.get("/check", userController.check)
 
 module.exports = routes;

@@ -1,8 +1,5 @@
+const prisma = require("../singleton");
 const crypto = require("crypto");
-
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
 
 async function vagasSeeder() {
     await prisma.vagas.upsert({

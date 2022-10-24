@@ -1,11 +1,8 @@
+const prisma = require("../../prisma/singleton");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const slugify = require("slugify");
 const jwt = require("jsonwebtoken");
-
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
 
 module.exports = {
     async list(_req, res) {
@@ -51,7 +48,7 @@ module.exports = {
 
         const token = jwt.sign({ id: user.id }, jwtSecretKey)
 
-        res.cookie("auth-token", token);
+        res.cookie("auth-token", token, { maxAge: 1800000 });
 
         return res.json(user);
     },
@@ -71,14 +68,13 @@ module.exports = {
                 created_at: created_at,
                 updated_at: updated_at,
             },
-        }).then(async (_users, callback = () => { }) => {
-            await prisma.$disconnect();
-            callback(res.status(200).send());
-        }).catch(async (e, callback = () => { }) => {
-            console.error(e);
-            await prisma.$disconnect();
-            callback(res.status(500).send());
-            process.exit(1);
-        });
+        })
     },
+    async check(req, res) {
+        const cookies = req.cookies;
+
+        const data = jwt.decode(cookies["auth-token"]);
+
+        return res.send(data);
+    }
 };

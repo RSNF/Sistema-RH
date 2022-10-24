@@ -1,10 +1,7 @@
+const prisma = require("../../prisma/singleton");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs")
 const slugify = require("slugify")
-
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
 
 module.exports = {
     async list(_req, res) {
