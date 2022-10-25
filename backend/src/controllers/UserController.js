@@ -20,8 +20,8 @@ module.exports = {
         return res.json(result);
     },
     async signIn(req, res) {
-        const { email, senha } = req.body;
-
+        const { email, senha, checkbox } = req.body;
+        
         const user = await prisma.usuarios.findUnique({
             where: {
                 email: email,
@@ -48,10 +48,19 @@ module.exports = {
 
         const token = jwt.sign({ id: user.id }, jwtSecretKey)
 
-        res.cookie("auth-token", token, { maxAge: 1800000 });
+        res.cookie("auth-token", token, {
+            httpOnly: true,
+            maxAge: 1800000 
+        });
 
         return res.json(user);
     },
+
+    async logOut(req, res) {
+        res.clearCookie('auth-token');
+        return res.status(200).send();
+    },
+
     async create(req, res) {
         const { nome, email, senha } = req.body;
         const slug = slugify(nome, { lower: true });
@@ -69,6 +78,7 @@ module.exports = {
                 updated_at: updated_at,
             },
         })
+        .then(res.status(202).send());
     },
     async check(req, res) {
         const cookies = req.cookies;

@@ -11,13 +11,14 @@ export const Input = ({
   onChange,
   value,
   register,
+  defaultValue,
+  inputError
 }) => {
 
   const [enableShow, setValue] = useState(false);
   function showPassword() {
     const input = document.getElementById(name);
-    
-    console.log(enableShow)
+  
     if (enableShow) {
       input.type = "password";
       return setValue(false);
@@ -42,6 +43,7 @@ export const Input = ({
   }
 
   return (
+    <>
     <div id="input-div">
       <input
         {...register}
@@ -52,9 +54,13 @@ export const Input = ({
         autofocus={autofocus}
         onChange={onChange}
         value={value}
+        defaultValue={defaultValue ?? ''}
       />
       {type === "password" && EyePassword()}
+      
     </div>
+    {<span id="input-error">{inputError}</span> ?? null}
+    </>
   );
 }
 

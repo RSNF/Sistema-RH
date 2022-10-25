@@ -1,11 +1,13 @@
 import React from "react";
-import { useAuth } from "../../contexts/useAuth"
+import { useAuth } from "../../contexts/useAuth";
+import { Navigate } from "react-router-dom";
 
-export const ProtectedLayout = ({children}) => {
-    const auth = useAuth();
-    if(!auth) {
-        return <h1>Sem acesso!</h1>;
-    }
+export const ProtectedLayout = ({ children }) => {
+  const auth = useAuth();
 
-    return children;
+  if (!auth.isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+
+  return children;
 }

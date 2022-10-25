@@ -61,6 +61,12 @@
     border: none;
     color: var(--neutral700);
     background-color: var(--neutral200);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#create-div > form > div > button:hover {
+    background-color: var(--neutral300);
 }
 
 #create-div > form > div > #create-button {
@@ -70,6 +76,10 @@
     border: none;
     color: var(--neutral50);
     background-color: var(--primary-success700);
+}
+
+#create-div > form > div > #create-button:hover {
+    background-color: var(--primary-success800);
 }
 
 @media screen and (min-width: 1080px) {

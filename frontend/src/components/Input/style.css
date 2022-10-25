@@ -5,6 +5,7 @@ input {
   border: 2px solid var(--neutral400);
   border-radius: 5px;
   padding-left: 5px;
+  caret-color: var(--primary-success500);
 }
 
 input[type="submit"] {
@@ -13,6 +14,12 @@ input[type="submit"] {
   background-color: var(--primary-success700);
   border: none !important;
   color: var(--neutral50);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-success800);
 }
 
 input[type="checkbox"] {
@@ -53,4 +60,9 @@ div > .eye-password {
   width: 1.5em;
   height: 1.5em;
   cursor: pointer;
+}
+
+#input-error {
+  font-weight: 500;
+  color: var(--error500);
 }

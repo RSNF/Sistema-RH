@@ -1,13 +1,20 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 import "./style.css";
 import { Input } from "../../components/Input/index";
-import { Logo, Facebook, Twitter, Google } from "../../components/Svg";
+import { Logo, /*Facebook, Twitter, Google*/ } from "../../components/Svg";
 import { Link } from "../../components/Link/index";
 import { useAuth } from "../../contexts/useAuth";
 
+const schema = yup.object({
+  email: yup.string().email('Deve ser um email. Ex: email@example.com').required('o email é obrigatório!'),
+  password: yup.string().required('A senha é obrigatória!').min(6, 'A senha deve ter no mínimo 6 caracteres.')
+}).required();
+
 export const Login = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState:{ errors } } = useForm({resolver: yupResolver(schema)});
   const auth = useAuth();
   const navigate = useNavigate();
 
@@ -15,7 +22,6 @@ export const Login = () => {
     try {
       await auth.signIn(data);
       navigate("/");
-      navigate(0);
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +46,7 @@ export const Login = () => {
               name="email"
               placeholder="Email"
               autofocus="true"
+              inputError={errors?.email?.message}
             />
           </span>
 
@@ -50,6 +57,7 @@ export const Login = () => {
               type="password"
               name="password"
               placeholder="Senha"
+              inputError={errors?.password?.message}
             />
           </span>
 
@@ -66,10 +74,10 @@ export const Login = () => {
             <Link text="Esqueci a senha" />
           </div>
 
-          <Input type="submit" />
+          <Input type="submit" name="submit-btn" />
         </form>
 
-        <div id="ou-line">
+        {/* <div id="ou-line">
           <hr />
           <p>ou</p>
           <hr />
@@ -85,13 +93,9 @@ export const Login = () => {
           <a href="#">
             <Google />
           </a>
-        </div>
+        </div> */}
 
-        <a
-          onClick={() => {
-            navigate("/criar-conta");
-            navigate(0);
-          }}
+        <a href={'/criar-conta'}
           id="create"
         >
           Criar conta

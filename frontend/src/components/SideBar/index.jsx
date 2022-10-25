@@ -9,10 +9,24 @@ import {
   FiChevronDown,
   FiLogOut,
 } from "react-icons/fi";
+import  { useNavigate } from 'react-router-dom';
+import  { useAuth } from '../../contexts/useAuth';
 
 import { CgProfile } from "react-icons/cg";
 
 export const SideBar = () => {
+
+  const auth = useAuth();
+  const navigate = useNavigate();
+
+  async function handleSingnOut() {
+    try {
+      await auth.logOut();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 	function showSubMenu() {
     const sidebar = document.getElementById('sidebar');
@@ -113,12 +127,12 @@ export const SideBar = () => {
 			<div className="div-profile">
 				<CgProfile/>
 				<span>
-					<strong>Name</strong>
-					<p>email@uesb.com</p>
+					<strong>{auth.user?.nome}</strong>
+					<p>{auth.user?.email}</p>
 				</span>
 			</div>
 
-      <button className="logout-btn" >
+      <button className="logout-btn" onClick={() => {handleSingnOut()}} >
           <FiLogOut id="logout-icon" /> 
           <span>Sair</span>
       </button>

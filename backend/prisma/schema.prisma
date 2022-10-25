@@ -11,15 +11,15 @@ datasource db {
 }
 
 model Usuarios {
-  id         String    @id
-  slug       String    @unique
-  nome       String
-  email      String    @unique
-  senha      String
-  vagas_id   String?
-  created_at DateTime?
-  updated_at DateTime?
-  Vagas      Vagas[]
+  id           String    @id
+  slug         String    @unique
+  nome         String
+  email        String    @unique
+  senha        String
+  vagas_id     String?
+  created_at   DateTime?
+  updated_at   DateTime?
+  Vagas        Vagas[]
 
   @@index([slug])
 }

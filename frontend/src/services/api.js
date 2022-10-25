@@ -1,15 +1,12 @@
 import axios from "axios";
-import { getUserLocalStorage } from "../contexts/Storage";
 
-const api = axios.create({ baseURL:'http://localhost:3005/' });
+const api = axios.create({ baseURL:'http://localhost:3005/', withCredentials:true });
 
 api.interceptors.request.use(
-    (config) => {
-        const user = getUserLocalStorage()
-        config.headers.Authorization = user?.id;
+    config => {
         return config;
     },
-    (error) => {
+    error => {
         return Promise.reject(error);
     }
 )

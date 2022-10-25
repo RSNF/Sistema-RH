@@ -15,6 +15,7 @@ routes.get("/users", userController.list)
 routes.get("/users/:id", userController.show)
 routes.post("/users", userController.create)
 routes.post("/login", userController.signIn)
+routes.post("/sair", userController.logOut)
 routes.get("/check", userController.check)
 
 module.exports = routes;
