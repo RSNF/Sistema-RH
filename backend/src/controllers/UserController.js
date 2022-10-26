@@ -1,14 +1,14 @@
 const prisma = require("../../prisma/singleton");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
-const slugify = require("slugify");
 const jwt = require("jsonwebtoken");
+const slugification = require("../utils/slugfication");
 
 module.exports = {
     async list(_req, res) {
         const result = await prisma.usuarios.findMany();
 
-        return res.json(...result);
+        return res.status(200).json(result);
     },
     async show(req, res) {
         const { id } = req.params;
@@ -17,11 +17,11 @@ module.exports = {
             where: { id: id },
         });
 
-        return res.json(result);
+        return res.status(200).json(result);
     },
     async signIn(req, res) {
         const { email, senha, checkbox } = req.body;
-        
+
         const user = await prisma.usuarios.findUnique({
             where: {
                 email: email,
@@ -42,7 +42,7 @@ module.exports = {
             }
         }
 
-        let jwtSecretKey = process.env.JWT_SECRET_KEY;
+        const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
         delete user.senha;
 
@@ -50,22 +50,35 @@ module.exports = {
 
         res.cookie("auth-token", token, {
             httpOnly: true,
-            maxAge: 1800000 
+            maxAge: 1800000
         });
 
-        return res.json(user);
+        return res.status(200).json(user);
     },
-
-    async logOut(req, res) {
+    async logOut(_req, res) {
         res.clearCookie('auth-token');
+
         return res.status(200).send();
     },
-
     async create(req, res) {
         const { nome, email, senha } = req.body;
-        const slug = slugify(nome, { lower: true });
+        const slug = await slugification("Usuarios", nome);
         const created_at = new Date().toISOString();
         const updated_at = new Date().toISOString();
+
+        const result = await prisma.usuarios.findUnique({
+            select: {
+                email: true
+            },
+            where: {
+                email: email,
+            }
+        })
+
+        if (result) {
+            res.statusMessage = "Email address already exists!";
+            return res.status(400).send();
+        } 
 
         await prisma.usuarios.create({
             data: {
@@ -77,8 +90,16 @@ module.exports = {
                 created_at: created_at,
                 updated_at: updated_at,
             },
+        }).catch(async (_e) => {
+            res.statusMessage = "Something went wrong!";
+            res.statusCode = 500;
         })
-        .then(res.status(202).send());
+
+        if (res.statusCode != 500) {
+            res.statusCode = 202;
+        }
+
+        return res.send();
     },
     async check(req, res) {
         const cookies = req.cookies;
