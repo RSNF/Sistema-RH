@@ -10,7 +10,3 @@ module.exports = class Usuario {
         this.email = result["email"];
     }
 }
-
-User = new Usuario("fulano-da-silva");
-
-console.log(user)
