@@ -22,9 +22,11 @@ async function slugification(table, value) {
     } else if (table == "Candidatos") {
         count = await prisma.$queryRaw`
             SELECT count(nome) as count 
-            FROM Usuarios 
+            FROM Candidatos 
             WHERE nome = ${value} COLLATE NOCASE;
         `
+    } else {
+        throw `Error: Table ${table} not recognized in schema!`
     }
 
     if (count[0]["count"] > 0) {

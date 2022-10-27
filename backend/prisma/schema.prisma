@@ -16,10 +16,10 @@ model Usuarios {
   nome       String
   email      String    @unique
   senha      String
+  Vagas      Vagas[]
   vagas_id   String?
   created_at DateTime?
   updated_at DateTime?
-  Vagas      Vagas[]
 
   @@index([slug])
 }
