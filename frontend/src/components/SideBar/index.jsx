@@ -15,10 +15,9 @@ import  { useAuth } from '../../contexts/useAuth';
 import { CgProfile } from "react-icons/cg";
 
 export const SideBar = () => {
-
   const auth = useAuth();
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   async function handleSingnOut() {
     try {
       await auth.logOut();
@@ -127,8 +126,8 @@ export const SideBar = () => {
 			<div className="div-profile">
 				<CgProfile/>
 				<span>
-					<strong>{auth.user?.nome}</strong>
-					<p>{auth.user?.email}</p>
+					<strong>{auth && auth?.user?.nome}</strong>
+					<p>{auth && auth?.user?.email}</p>
 				</span>
 			</div>
 

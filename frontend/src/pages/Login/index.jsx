@@ -7,6 +7,7 @@ import { Input } from "../../components/Input/index";
 import { Logo, /*Facebook, Twitter, Google*/ } from "../../components/Svg";
 import { Link } from "../../components/Link/index";
 import { useAuth } from "../../contexts/useAuth";
+import { Footer } from "../../components/Footer";
 
 const schema = yup.object({
   email: yup.string().email('Deve ser um email. Ex: email@example.com').required('o email é obrigatório!'),
@@ -28,7 +29,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="login-main-div">
+    <><div className="login-main-div">
       <div id="logo-div">
         <h1>Sistema RH</h1>
         <Logo />
@@ -45,7 +46,7 @@ export const Login = () => {
               type="email"
               name="email"
               placeholder="Email"
-              autofocus="true"
+              autofocus={true}
               inputError={errors?.email?.message}
             />
           </span>
@@ -102,5 +103,6 @@ export const Login = () => {
         </a>
       </div>
     </div>
+    <Footer /></>
   );
 };

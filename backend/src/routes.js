@@ -20,7 +20,7 @@ routes.post("/users", userController.create)
 routes.put("/users/:id", userController.update)
 routes.delete("/users/:id", userController.remove)
 routes.post("/login", userController.signIn)
-routes.post("/sair", userController.logOut)
+routes.post("/logout", userController.logOut)
 routes.get("/check", userController.check)
 
 // Rotas Candidato

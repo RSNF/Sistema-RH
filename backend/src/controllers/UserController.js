@@ -50,11 +50,12 @@ async function signIn(req, res) {
     const token = jwt.sign({ id: user.id }, jwtSecretKey)
 
     res.cookie("auth-token", token, {
-        httpOnly: true,
         maxAge: 1800000
     });
 
-    return res.status(200).json(user);
+    const userInfo = {nome:user.nome, email:user.email, }
+
+    return res.status(200).json(userInfo);
 }
 
 async function logOut(_req, res) {
@@ -138,10 +139,26 @@ async function remove(req, res) {
 
 async function check(req, res) {
     const cookies = req.cookies;
-
     const data = jwt.decode(cookies["auth-token"]);
 
-    return res.send(data);
+    if(!data){
+        console.error("Usuário não autenticado!");
+
+        res.statusMessage = "Usuário não autenticado!";
+        return null;
+    }
+
+    const user = await prisma.usuarios.findUnique({
+        where: {
+            id: data.id,
+        },
+    });
+
+    delete user.senha;
+
+    const userInfo = {nome:user.nome, email:user.email}
+
+    return res.status(202).send(userInfo);
 }
 
 module.exports = {

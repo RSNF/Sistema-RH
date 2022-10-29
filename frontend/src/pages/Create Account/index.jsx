@@ -6,6 +6,7 @@ import "./style.css";
 import { Input } from "../../components/Input/index";
 import { Logo } from "../../components/Svg";
 import { useAuth } from "../../contexts/useAuth";
+import { Footer } from "../../components/Footer";
 
 const schema = yup.object({
   name: yup.string().required('O nome é obrigatório!'),
@@ -24,12 +25,13 @@ export const CreateAccount = () => {
       navigate('/')
       navigate(0)
     } catch (error) {
-      console.log(error);
+      alert(error?.request.statusText)
+      console.log(error?.request.statusText);
     }
   }
 
   return (
-    <div className="create-main-div">
+    <><div className="create-main-div">
       <div id="logo-div">
         <h1>Sistema RH</h1>
         <Logo />
@@ -44,7 +46,7 @@ export const CreateAccount = () => {
             type="text"
             name="name"
             placeholder="Nome"
-            autofocus="true"
+            autofocus={true}
             register={register("name")}
             inputError={errors?.name?.message}
           />
@@ -80,5 +82,6 @@ export const CreateAccount = () => {
         </form>
       </div>
     </div>
+    <Footer /></>
   );
 };

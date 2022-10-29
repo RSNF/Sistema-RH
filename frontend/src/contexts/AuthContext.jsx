@@ -1,29 +1,37 @@
 import { createContext, useState, useEffect } from "react";
-import { LoginRequest, CreateUserRequest, getUserLocalStorage, setUserLocalStorage, LogOutRequest } from "./Storage";
+import {
+  LoginRequest,
+  CreateUserRequest,
+  getUser,
+  LogOutRequest,
+} from "./AuthController";
 
 export const AuthContext = createContext({});
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
 
-  const isAuthenticated = !!getUserLocalStorage();
+  const [user, setUser] = useState(null);
+  const isAuthenticated = !!user;
 
   useEffect(() => {
-    const user = getUserLocalStorage();
+    let ignore = false;
 
-    if (user) {
-      setUser(user);
-    }
+    (async function recoverUserInfo() {
+      const result = await getUser();
+      if (!ignore){
+        setUser(result);
+      } 
+    })()
+    
+    return () => { ignore = true; }
   }, []);
 
-
   async function signIn({ email, password, checkbox }) {
-    const {id, nome} = await LoginRequest(email, password, checkbox);
+    const { id, nome } = await LoginRequest(email, password, checkbox);
 
-    const loginInfo = {id:id, nome:nome, email:email};
+    const loginInfo = { id: id, nome: nome, email: email };
 
-    setUser(id);
-    setUserLocalStorage(JSON.stringify(loginInfo));
+    setUser(loginInfo);
   }
 
   async function logOut() {
@@ -33,11 +41,13 @@ export function AuthProvider({ children }) {
 
   async function createUser({ name, email, password }) {
     const response = await CreateUserRequest(name, email, password);
-    console.log(response)
+    return response;
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn, createUser, logOut }}>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, signIn, createUser, logOut }}
+    >
       {children}
     </AuthContext.Provider>
   );

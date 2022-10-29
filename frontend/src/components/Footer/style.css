@@ -1,14 +1,12 @@
 footer {
   display: flex;
-  width: 100%;
+  position: relative;
   justify-content: center;
-  margin: 0;
   margin-bottom: 2rem;
-  left: 0;
 }
 
 footer p {
-  width: 30rem;
+  width: 80%;
   text-align: center;
   font-size: 0.9rem;
 }

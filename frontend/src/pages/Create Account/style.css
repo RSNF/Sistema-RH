@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin: auto 10%;
-    margin-bottom: 20rem;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -27,6 +26,7 @@
     width: 100%;
     max-width: 440px;
     margin-top: 45px;
+    margin-bottom: 5rem;
 }
 
 #create-div h1 {
