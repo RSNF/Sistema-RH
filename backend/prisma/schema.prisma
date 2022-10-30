@@ -45,6 +45,7 @@ model Candidatos {
   nome       String
   email      String
   tel        String
+  perfil     String
   vagas      Vagas[]
   vagas_id   String?
   created_at DateTime?

@@ -10,9 +10,16 @@ async function vagasSeeder() {
             slug: "lorem-ipsum-dolor",
             titulo: "Lorem ispum dolor",
             descricao: "Lorem ipsum dolor lorem ipsum dolor",
-            objetivos: "{dummy: \"lorem ispsum dolor\"}",
+            objetivos: JSON.stringify(
+                {
+                    colOrInd: 0,
+                    resOrSoc: 1,
+                    IntOrPac: 0,
+                    ImpOrVig: 0
+                }
+            ),
             candidatos: {
-                connect: { slug: "sicrano-santos" },
+                connect: [{ slug: "sicrano-santos" }, { slug: "sicrano-de-santos-2" }],
             },
             usuario: {
                 connect: { slug: "fulano-da-silva" },

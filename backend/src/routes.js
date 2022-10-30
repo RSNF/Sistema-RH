@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const routes = express.Router();
 const userController = require("./controllers/UserController");
 const CandidatoController = require("./controllers/CandidatoController");
+const VagaController = require("./controllers/VagaController");
 
 routes.use(cookieParser());
 
@@ -29,5 +30,12 @@ routes.get("/candidatos/:id", CandidatoController.show);
 routes.post("/candidatos", CandidatoController.create)
 routes.put("/candidatos/:id", CandidatoController.update)
 routes.delete("/candidatos/:id", CandidatoController.remove)
+
+// Rotas Vagas
+routes.get("/vagas", VagaController.list);
+routes.get("/vagas/:id", VagaController.show);
+routes.post("/vagas/:userId", VagaController.create);
+routes.put("/vagas/:id", VagaController.update)
+routes.delete("/vagas/:id", VagaController.remove)
 
 module.exports = routes;

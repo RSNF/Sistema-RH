@@ -53,12 +53,14 @@ async function create(req, res) {
 async function update(req, res) {
     const { id } = req.params;
     const { nome, email } = req.body;
+    const updated_at = new Date().toISOString();
 
     await prisma.candidatos.update({
         where: { id: id },
         data: {
             nome: nome,
-            email: email
+            email: email,
+            updated_at: updated_at
         }
     }).catch(async (_e) => {
         res.statusMessage = "Something went wrong!";
