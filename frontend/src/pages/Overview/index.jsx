@@ -1,8 +1,9 @@
+import { Atividade } from "../../components/Atividade";
 
 export const Overview = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+  return (
+    <div>
+      <Atividade />
+    </div>
+  );
+};

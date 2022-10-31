@@ -1,4 +1,5 @@
 import "./style.css";
+import { FiUser } from "react-icons/fi";
 
 export const Atividade = ({ href, text, target }) => {
   return (
@@ -16,63 +17,58 @@ export const Atividade = ({ href, text, target }) => {
           </div>
           <div className="contantes-item">
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
+            </div>
+            <div className="pendente-item">
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
-            </div>
 
-            <div className="pendente-item">
-              <span>i</span>
-              <span>
-                <p>João da Silva</p>
-              </span>
-              <span>
-                <p>Operador</p>
-              </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+              <button className="button-atv">Reenviar</button>
             </div>
           </div>
           <div className="ver-pendente">
@@ -86,63 +82,59 @@ export const Atividade = ({ href, text, target }) => {
           </div>
           <div className="contantes-item">
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
           </div>
           <div className="ver-pendente">
@@ -156,63 +148,59 @@ export const Atividade = ({ href, text, target }) => {
           </div>
           <div className="contantes-item">
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
 
             <div className="pendente-item">
-              <span>i</span>
+              <span className="icon-FiUser">
+                <FiUser />
+              </span>
               <span>
                 <p>João da Silva</p>
               </span>
               <span>
                 <p>Operador</p>
               </span>
-              <form>
-                <div id="input-div">
-                  <p>Reenviar</p>
-                </div>
-              </form>
+
+              <button className="button-atv">Reenviar</button>
             </div>
           </div>
           <div className="ver-pendente">

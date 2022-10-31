@@ -1,14 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 p {
   font-size: 13px;
 }
-.text-font {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 .text-principal {
   padding-bottom: 10px;
   color: rgb(34, 144, 107);
@@ -35,6 +28,7 @@ p {
   width: 50vh;
   height: auto;
 
+  border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(184, 175, 184, 1);
   -webkit-box-shadow: 5px 5px 10px rgba(184, 175, 184, 1);
   -moz-box-shadow: 5px 5px 10px rgba(184, 175, 184, 1);
@@ -48,7 +42,7 @@ p {
 }
 .pendente-item {
   display: flex;
-  padding: 5px;
+  padding: 0;
   gap: 20px 50px;
   align-items: center;
 
@@ -63,4 +57,17 @@ p {
 
   padding-top: 15px;
   color: rgb(34, 144, 107);
+}
+.button-atv {
+  background: none;
+  padding: 3px 7px 3px 7px;
+  width: 50%;
+  margin: 0;
+  color: #047857;
+  border: 1px solid #047857;
+}
+
+.icon-FiUser {
+  padding-left: 6px;
+  color: var(--primary-success400);
 }
