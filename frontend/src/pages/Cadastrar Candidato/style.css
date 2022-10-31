@@ -1,0 +1,55 @@
+.register-cand {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 27rem;
+    margin-right: 2rem;
+    margin-top: 20px;
+}
+
+.register-cand > form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    justify-content: space-between;
+}
+
+.register-cand > form div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+}
+
+.register-cand > form > label {
+    font-weight: 600;
+}
+
+.register-cand > form > div > button {
+    width: 35%;
+    border-radius: 5px;
+    border: none;
+    color: var(--neutral700);
+    background-color: var(--neutral200);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.register-cand > form > div > button:hover {
+    background-color: var(--neutral300);
+}
+
+.register-cand > form > div > #create-button {
+    width: 60%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    color: var(--neutral50);
+    background-color: var(--primary-success700);
+}
+
+.register-cand > form > div > #create-button:hover {
+    background-color: var(--primary-success800);
+}
