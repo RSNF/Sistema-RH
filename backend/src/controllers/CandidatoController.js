@@ -5,7 +5,7 @@ const slugification = require("../utils/slugfication");
 async function list(_req, res) {
     const result = await prisma.candidatos.findMany();
 
-    return res.json(...result);
+    return res.status(200).json(result);
 }
 
 async function show(req, res) {
@@ -19,11 +19,13 @@ async function show(req, res) {
 }
 
 async function create(req, res) {
-    const { vaga_id }  = req.params;
-    const { nome, email, tel } = req.body;
-    const slug = slugification("Candidatos", nome);
+    const { vagaId }  = req.params;
+    const { nome, email, tel, perfil } = req.body;
+    const slug = await slugification("Candidatos", nome);
     const created_at = new Date().toISOString();
     const updated_at = new Date().toISOString();
+
+    console.log(slug);
 
     await prisma.candidatos.create({
         data: {
@@ -32,14 +34,16 @@ async function create(req, res) {
             nome: nome,
             email: email,
             vagas: {
-                connect: vaga_id
+                connect: { id: vagaId }
             },
             tel: tel,
+            perfil: JSON.stringify(perfil),
             created_at: created_at,
             updated_at: updated_at
         }
     }).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        console.log(_e);
+        res.statusMessage = "Something went wrong when creating!";
         res.statusCode = 500;
     })
 
@@ -53,15 +57,17 @@ async function create(req, res) {
 async function update(req, res) {
     const { id } = req.params;
     const { nome, email } = req.body;
+    const updated_at = new Date().toISOString();
 
     await prisma.candidatos.update({
         where: { id: id },
         data: {
             nome: nome,
-            email: email
+            email: email,
+            updated_at: updated_at
         }
     }).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        res.statusMessage = "Something went wrong when updating, check data!";
         res.statusCode = 500;
     });
 
@@ -74,7 +80,7 @@ async function remove(req, res) {
     await prisma.candidatos.delete({
         where: { id: id }
     }).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        res.statusMessage = "Something went wrong when deleting, check ID!";
         res.statusCode = 500;
     });
 

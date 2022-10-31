@@ -95,7 +95,7 @@ async function create(req, res) {
             updated_at: updated_at,
         },
     }).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        res.statusMessage = "Something went wrong when creating!";
         res.statusCode = 500;
     });
 
@@ -109,15 +109,17 @@ async function create(req, res) {
 async function update(req, res) {
     const { id } = req.params;
     const { nome, email } = req.body;
+    const updated_at = new Date().toISOString();
 
     await prisma.usuarios.update({
         where: { id: id },
         data: {
             nome: nome,
-            email: email
+            email: email,
+            updated_at: updated_at
         }
     }).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        res.statusMessage = "Something went wrong when updating, check data!";
         res.statusCode = 500;
     });
 
@@ -130,7 +132,7 @@ async function remove(req, res) {
     await prisma.usuarios.delete({
         where: { id: id }
     }).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        res.statusMessage = "Something went wrong when deleting, check ID!";
         res.statusCode = 500;
     });
 
