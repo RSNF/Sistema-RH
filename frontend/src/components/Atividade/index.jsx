@@ -2,31 +2,224 @@ import "./style.css";
 
 export const Atividade = ({ href, text, target }) => {
   return (
-    <section className="atividades">
-      <section className="atividades-vagas">
-        <div className="text-principal">
-          <h3 className="text-font">Atividades Recentes nas Vagas</h3>
-        </div>
-        <div className="item">
-          <h4 className="text-font">Gerente de Projetos</h4>
-          <div className="text-item">
-            <p className="text-font">Aberto há 23 dias</p>
-            <p className="text-font">Candidatos: 6</p>
+    <div className="container">
+      <section className="atividades">
+        <section className="atividades-grid item1">
+          <div className="text-principal">
+            <h3 className="text-font">Atividades Recentes nas Vagas</h3>
           </div>
-          <div className="acesso">
-            <p className="text-font">Acessar</p>
-          </div>
-        </div>
+        </section>
 
-        <div className="item">
-          <h4 className="text-font">Designer</h4>
-          <div className="text-item">
-            <p className="text-font">Aberto há 23 dias</p>
-            <p className="text-font">Candidatos: 6</p>
-            <p className="acesso">Acessar</p>
+        <section className="atividades-grid ">
+          <div className="text-principal">
+            <h3 className="text-font">Avaliações Pendentes</h3>
           </div>
-        </div>
+          <div className="contantes-item">
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="ver-pendente">
+            <h5>VER TODAS</h5>
+          </div>
+        </section>
+
+        <section className="atividades-grid item3">
+          <div className="text-principal">
+            <h3 className="text-font">Finalizados recentemente</h3>
+          </div>
+          <div className="contantes-item">
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="ver-pendente">
+            <h5>VER TODAS</h5>
+          </div>
+        </section>
+
+        <section className="atividades-grid item4">
+          <div className="text-principal">
+            <h3 className="text-font">Finalizados recentemente</h3>
+          </div>
+          <div className="contantes-item">
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+
+            <div className="pendente-item">
+              <span>i</span>
+              <span>
+                <p>João da Silva</p>
+              </span>
+              <span>
+                <p>Operador</p>
+              </span>
+              <form>
+                <div id="input-div">
+                  <p>Reenviar</p>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="ver-pendente">
+            <h5>VER TODAS</h5>
+          </div>
+        </section>
       </section>
-    </section>
+    </div>
   );
 };
