@@ -27,7 +27,7 @@ routes.get("/check", userController.check)
 // Rotas Candidato
 routes.get("/candidatos", CandidatoController.list);
 routes.get("/candidatos/:id", CandidatoController.show);
-routes.post("/candidatos", CandidatoController.create)
+routes.post("/candidatos/:vagaId", CandidatoController.create)
 routes.put("/candidatos/:id", CandidatoController.update)
 routes.delete("/candidatos/:id", CandidatoController.remove)
 

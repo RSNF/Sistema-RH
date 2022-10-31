@@ -30,11 +30,11 @@ model Vagas {
   titulo     String
   descricao  String
   objetivos  String
-  usuario    Usuarios     @relation(fields: [usuariosId], references: [id])
+  criador    Usuarios     @relation(fields: [criadorId], references: [id])
   candidatos Candidatos[]
+  criadorId    String
   created_at DateTime?
   updated_at DateTime?
-  usuariosId String
 
   @@index([slug])
 }

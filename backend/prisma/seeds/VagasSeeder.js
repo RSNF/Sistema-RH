@@ -21,7 +21,7 @@ async function vagasSeeder() {
             candidatos: {
                 connect: [{ slug: "sicrano-santos" }, { slug: "sicrano-de-santos-2" }],
             },
-            usuario: {
+            criador: {
                 connect: { slug: "fulano-da-silva" },
             },
             created_at: new Date().toISOString(),

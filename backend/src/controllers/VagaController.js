@@ -3,7 +3,11 @@ const crypto = require("crypto");
 const slugification = require("../utils/slugfication");
 
 async function list(_req, res) {
-    const result = await prisma.vagas.findMany();
+    const result = await prisma.vagas.findMany({
+        include: {
+            candidatos: true
+        }
+    });
 
     return res.status(200).json(result);
 }
@@ -14,6 +18,25 @@ async function show(req, res) {
     const result = await prisma.vagas.findUnique(
         {
             where: { id: id },
+            select: {
+                id: true,
+                slug: true,
+                titulo: true,
+                descricao: true,
+                objetivos: true,
+                criadorId: true,
+                candidatos: {
+                    orderBy: {
+                        updated_at: 'asc'
+                    },
+                    select: {
+                        id: true,
+                        slug: true
+                    }
+                },
+                created_at: true,
+                updated_at: true,
+            }
         }
     );
 
@@ -125,7 +148,7 @@ async function update(req, res) {
             }
         }
     ).catch(async (_e) => {
-        res.statusMessage = "Something went wrong!";
+        res.statusMessage = "Something went wrong when updating, check data!";
         res.statusCode = 500;
     });
 
