@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: darkgray;
+}
+.text-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.text-principal {
+  padding-bottom: 10px;
+  color: rgb(90, 243, 192);
+}
+.atividades {
+  padding-top: 30px;
+  background-color: white;
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+}
+.atividades-vagas {
+  padding: 10px;
+  border: 2px solid black;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+.item {
+  padding: 10px;
+
+  border-radius: 35px;
+  border: 1px;
+  border-style: solid;
+  width: 200px;
+}
+.text-item {
+  padding: 10px;
+}
+.acesso {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: blanchedalmond;
+}
