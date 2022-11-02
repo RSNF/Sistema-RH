@@ -2,9 +2,74 @@ p {
   font-size: 13px;
 }
 
+.grid__container {
+  padding: 20px 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid__container__item {
+  border: 1px solid black;
+  border-radius: 30px;
+  max-width: 70%;
+  width: 340px;
+  padding: 10px;
+
+  white-space: wrap;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+.grid__text {
+  padding: 10px;
+  color: var(--primary-success700);
+}
+.container__item__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container__item__button__acess {
+  background: none;
+  background-color: var(--primary-success700);
+
+  margin: 0;
+  color: white;
+  border: 1px solid var(--primary-success700);
+  cursor: pointer;
+
+  font-weight: bold;
+  height: 40px;
+  width: 100%;
+  border-radius: 80px;
+}
+
+.container__item__lab {
+  display: flex;
+  padding: 0;
+  gap: 5px;
+}
+.container__item__text {
+  padding-top: 3px;
+  font-weight: bold;
+}
+.grid__container__footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.container__button__footer {
+  font-weight: bold;
+  background: none;
+  width: 50%;
+  margin: 0;
+  color: var(--primary-success700);
+  border: none;
+  cursor: pointer;
+}
 .text-principal {
   padding-bottom: 10px;
-  color: rgb(34, 144, 107);
+  color: var(--primary-success800);
 }
 .container {
   display: flex;
@@ -18,14 +83,14 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 100px;
-  grid-auto-rows: minmax(300px, auto);
+  grid-auto-rows: minmax(300px, 100px);
 }
 .atividades-grid {
   border: 2px solid #e0e0e0;
-  background-color: white;
+  background-color: var(--neutral50);
   font-size: 20px;
   padding: 10px;
-  width: 50vh;
+  width: 70vh;
   height: auto;
 
   border-radius: 20px;
@@ -45,7 +110,7 @@ p {
   padding: 0;
   gap: 20px 50px;
   align-items: center;
-
+  justify-content: center;
   border: 1px solid #e0e0e0;
   box-shadow: 5px 5px 10px rgba(184, 175, 184, 1);
   -webkit-box-shadow: 5px 5px 10px rgba(184, 175, 184, 1);
@@ -54,20 +119,30 @@ p {
 .ver-pendente {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   padding-top: 15px;
-  color: rgb(34, 144, 107);
+  color: var(--primary-success700);
 }
-.button-atv {
+.atividades-grid .button-atv {
   background: none;
   padding: 3px 7px 3px 7px;
   width: 50%;
   margin: 0;
-  color: #047857;
-  border: 1px solid #047857;
+  color: var(--primary-success700);
+  border: 1px solid var(--primary-success700);
+  cursor: pointer;
 }
 
 .icon-FiUser {
+  padding-left: 6px;
+  color: var(--primary-success400);
+}
+.container__item__icons {
+  padding-left: 6px;
+  color: var(--primary-success400);
+}
+.container__item__icons2 {
   padding-left: 6px;
   color: var(--primary-success400);
 }
