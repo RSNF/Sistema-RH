@@ -1,5 +1,5 @@
 import "./style.css";
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiClock } from "react-icons/fi";
 
 export const Atividade = ({ href, text, target }) => {
   return (
@@ -27,7 +27,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -41,7 +46,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
             <div className="pendente-item">
               <span className="icon-FiUser">
@@ -54,7 +64,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -68,7 +83,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
           </div>
           <div className="ver-pendente">
@@ -92,7 +112,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -106,7 +131,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -120,7 +150,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -134,7 +169,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
           </div>
           <div className="ver-pendente">
@@ -158,7 +198,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -172,7 +217,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -186,7 +236,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
 
             <div className="pendente-item">
@@ -200,7 +255,12 @@ export const Atividade = ({ href, text, target }) => {
                 <p>Operador</p>
               </span>
 
-              <button className="button-atv">Reenviar</button>
+              <button className="button-atv">
+                <span className="icon-fiClock">
+                  <FiClock />
+                </span>
+                Reenviar
+              </button>
             </div>
           </div>
           <div className="ver-pendente">

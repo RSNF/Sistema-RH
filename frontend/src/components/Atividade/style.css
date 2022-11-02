@@ -71,3 +71,8 @@ p {
   padding-left: 6px;
   color: var(--primary-success400);
 }
+.icon-fiClock {
+  padding-right: 8px;
+
+  color: var(--error600);
+}
