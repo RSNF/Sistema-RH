@@ -1,9 +1,9 @@
 import "./style.css";
 
-export const Link = ({ href, text, target }) => {
+export const Link = (props) => {
   return (
-    <a href={href ?? "#"} target={target}>
-      {text}
+    <a href={props.href ?? "#"} target={props.target}>
+      {props.text}
     </a>
   );
 };

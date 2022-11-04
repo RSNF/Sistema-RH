@@ -1,0 +1,31 @@
+.slider-div {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.slider-div #range {
+    min-width: 6rem;
+    max-width: 20rem;
+    height: 0.2rem;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: var(--neutral500);
+}
+
+.slider-div #range::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 100%;
+    background-color: var(--primary-success500);
+}
+
+.slider-div > span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}

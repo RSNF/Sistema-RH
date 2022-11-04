@@ -1,9 +1,9 @@
-
 .sidebar {
     display: flex;
     flex-direction: column;
     top: 0;
     left: 0;
+    position: sticky;
     height: 100vh;
     width: 70px;
     background-color: var(--neutral50);
@@ -58,45 +58,45 @@
     background-color: var(--neutral100);
 }
 
-li > #selected {
+li>#selected {
     transition: ease-in background-color .4s;
     background-color: var(--primary-success400);
 }
 
-.menu-item > svg {
+.menu-item>svg {
     width: 1.5em;
     height: 1.5em;
 }
 
-.menu-item > span {
+.menu-item>span {
     display: none;
     margin-left: 10px;
     font-size: 1rem;
     font-weight: 600;
 }
 
-.menu-item > i {
+.menu-item>i {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin-left: 5.5rem;
 }
 
-i > svg {
+i>svg {
     display: none;
     width: 1.5em;
     height: 1.5em;
 }
 
-.sub-menu-item{
+.sub-menu-item {
     display: none;
     height: 100%;
     margin-left: 3rem;
     border-left: 2px solid var(--neutral200);
-    transition: .6s ease-in opacity,.6s ease-out opacity;
+    transition: .6s ease-in opacity, .6s ease-out opacity;
 }
 
-.sub-menu-item > ul {
+.sub-menu-item>ul {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -114,12 +114,12 @@ i > svg {
     background-color: var(--neutral100);
 }
 
-.sub-menu-item > ul > #selected {
+.sub-menu-item>ul>#selected {
     transition: ease-in background-color .4s;
     background-color: var(--primary-success400);
 }
 
-.sub-menu-item li > span {
+.sub-menu-item li>span {
     font-size: 1rem;
     font-weight: 600;
 }
@@ -143,13 +143,13 @@ i > svg {
     align-items: center;
 }
 
-.div-profile > svg {
+.div-profile>svg {
     width: 2.5rem;
     height: 2.5rem;
     color: var(--neutral700);
 }
 
-.div-profile > span {
+.div-profile>span {
     display: none;
 }
 
@@ -171,10 +171,10 @@ i > svg {
 
 .logout-btn:hover {
     background-color: var(--neutral300);
-    
+
 }
 
-.logout-btn > span {
+.logout-btn>span {
     display: none;
     margin-left: 5px;
     font-weight: 600;
@@ -191,7 +191,7 @@ i > svg {
         flex-direction: row;
     }
 
-    .nav-logo > h1 {
+    .nav-logo>h1 {
         display: block;
     }
 
@@ -204,11 +204,11 @@ i > svg {
         flex-direction: row;
     }
 
-    .menu-item > span {
+    .menu-item>span {
         display: flex;
     }
 
-    i > svg {
+    i>svg {
         display: block;
     }
 
@@ -216,15 +216,15 @@ i > svg {
         flex-direction: row;
     }
 
-    .div-profile > svg {
+    .div-profile>svg {
         margin-right: 10px;
     }
 
-    .div-profile > span {
+    .div-profile>span {
         display: block;
     }
 
-    .logout-btn > span {
+    .logout-btn>span {
         display: inline;
     }
 }

@@ -20,9 +20,7 @@ const { register, handleSubmit, formState:{ errors } } = useForm({resolver: yupR
 
   async function handleRegisterCand(data) {
     try {
-    //   await auth.createUser(data);
-    //   navigate('/')
-    //   navigate(0)
+      
     } catch (error) {
       alert(error?.request.statusText)
       console.log(error?.request.statusText);

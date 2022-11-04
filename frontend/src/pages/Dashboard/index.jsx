@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { SideBar } from "../../components/SideBar";
 import { Footer } from "../../components/Footer";
-import { Atividade } from "../../components/Atividade";
 import "./style.css";
 import { Overview } from "../Overview";
 import { CadastrarCandidato } from '../Cadastrar Candidato';

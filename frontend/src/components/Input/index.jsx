@@ -3,21 +3,11 @@ import "./style.css";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 
 
-export const Input = ({
-  type,
-  name,
-  placeholder,
-  autofocus,
-  onChange,
-  value,
-  register,
-  defaultValue,
-  inputError
-}) => {
+export const Input = (props) => {
 
   const [enableShow, setValue] = useState(false);
   function showPassword() {
-    const input = document.getElementById(name);
+    const input = document.getElementById(props.name);
   
     if (enableShow) {
       input.type = "password";
@@ -46,20 +36,20 @@ export const Input = ({
     <>
     <div id="input-div">
       <input
-        {...register}
-        type={type}
-        name={name}
-        id={name}
-        placeholder={placeholder}
-        autoFocus={autofocus}
-        onChange={onChange}
-        value={value}
-        defaultValue={defaultValue ?? ''}
+        {...props.register}
+        type={props.type}
+        name={props.name}
+        id={props.name}
+        placeholder={props.placeholder}
+        autoFocus={props.autofocus}
+        onChange={props.onChange}
+        value={props.value}
+        defaultValue={props.defaultValue ?? ''}
       />
-      {type === "password" && EyePassword()}
+      {props.type === "password" && EyePassword()}
       
     </div>
-    {<span id="input-error">{inputError}</span> ?? null}
+    {<span id="input-error">{props.inputError}</span> ?? null}
     </>
   );
 }

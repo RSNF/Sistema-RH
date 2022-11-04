@@ -1,0 +1,9 @@
+.revisar-cand-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 10rem;
+    max-width: 30rem;
+    background-color: var(--neutral200);
+    border-radius: 10px;
+}

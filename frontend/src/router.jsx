@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login/index";
 import { Dashboard } from "./pages/Dashboard/index";
 import { ProtectedLayout } from "./components/ProtectedLayout";
-import { CreateAccount } from "./pages/Create Account";
+import { CreateAccount } from "./pages/Criar Conta";
 
 export default function Router() {
   return (

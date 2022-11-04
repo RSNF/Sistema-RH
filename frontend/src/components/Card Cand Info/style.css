@@ -1,0 +1,103 @@
+.cand-info-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  height: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px var(--neutral400);
+  background-color: var(--neutral50);
+  margin: 0.3rem 10px
+}
+
+.cand-info-content > svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: 5px;
+  color: var(--primary-success500);
+}
+
+.cand-info-content > span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cand-info-content > button {
+  width: 6rem;
+  height: 100%;
+  background: none;
+  border-radius: 0 8px 8px 0;
+  border: 2px solid var(--primary-success500);
+  cursor: pointer;
+  transition: all .4s;
+}
+
+.cand-info-content > button > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-enviar > div > svg {
+  color: var(--primary-success700);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+}
+
+.btn-reenviar > div > svg {
+  color: var(--error500);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+}
+
+.cand-info-content button > div > span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-success700);
+}
+
+.btn-enviar:hover {
+  background-color: var(--primary-success100);
+}
+
+.btn-reenviar:hover {
+  background-color: var(--error100);
+}
+
+@media screen and (min-width: 555px) {
+  .cand-info-content > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 10px;
+  }
+  
+  .cand-info-content > span {
+    font-size: 1rem;
+  }
+
+  .cand-info-content > button {
+    width: 10rem;
+  }
+
+  .btn-enviar > div > svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 10px;
+  }
+  
+  .btn-reenviar > div > svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 10px;
+  }
+  
+  .cand-info-content button > div > span {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+}

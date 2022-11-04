@@ -44,6 +44,10 @@ export function AuthProvider({ children }) {
     return response;
   }
 
+  async function registerCand({name, emaail, tel}){
+    
+  }
+
   return (
     <AuthContext.Provider
       value={{ user, isAuthenticated, signIn, createUser, logOut }}

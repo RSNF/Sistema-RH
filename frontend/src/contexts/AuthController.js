@@ -28,3 +28,9 @@ export async function CreateUserRequest(nome, email, senha) {
     return await api.post("users", { nome, email, senha });
         
 }
+
+export async function RegisterCandRequest(nome, email, tel) {
+    
+    
+        
+}

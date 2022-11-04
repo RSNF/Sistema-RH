@@ -1,0 +1,17 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+
+@media screen and (min-width: 1330px) {
+  .main-content {
+    display: grid;
+    max-width: 67rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
