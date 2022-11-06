@@ -22,12 +22,17 @@ async function show(req, res) {
 
 async function signIn(req, res) {
     const { email, senha, checkbox } = req.body;
+    let rememberMe;
 
     const user = await prisma.usuarios.findUnique({
         where: {
             email: email,
         },
     });
+
+    if (checkbox) {
+        rememberMe = "365d"
+    }
 
     if (!user) {
         console.error("User cannot be found!");
@@ -47,7 +52,7 @@ async function signIn(req, res) {
 
     delete user.senha;
 
-    const token = jwt.sign({ id: user.id }, jwtSecretKey)
+    const token = jwt.sign({ id: user.id }, jwtSecretKey, { expiresIn: rememberMe | "30m" })
 
     res.cookie("auth-token", token, {
         maxAge: 1800000
