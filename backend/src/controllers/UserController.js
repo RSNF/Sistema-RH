@@ -55,7 +55,9 @@ async function signIn(req, res) {
     const token = jwt.sign({ id: user.id }, jwtSecretKey, { expiresIn: rememberMe | "30m" })
 
     res.cookie("auth-token", token, {
-        maxAge: 1800000
+        maxAge: 1800000,
+        httpOnly: true,
+        secure: true
     });
 
     const userInfo = { nome:user.nome, email:user.email, };
@@ -64,7 +66,10 @@ async function signIn(req, res) {
 }
 
 async function logOut(_req, res) {
-    res.clearCookie('auth-token');
+    res.clearCookie('auth-token', {
+        httpOnly: true,
+        secure: true
+    });
 
     return res.status(200).send();
 }
