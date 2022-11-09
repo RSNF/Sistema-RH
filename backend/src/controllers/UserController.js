@@ -58,7 +58,7 @@ async function signIn(req, res) {
         maxAge: 1800000
     });
 
-    const userInfo = {nome:user.nome, email:user.email, }
+    const userInfo = { nome:user.nome, email:user.email, };
 
     return res.status(200).json(userInfo);
 }
@@ -146,7 +146,8 @@ async function remove(req, res) {
 
 async function check(req, res) {
     const cookies = req.cookies;
-    const data = jwt.decode(cookies["auth-token"]);
+    const jwtSecretKey = process.env.JWT_SECRET_KEY;
+    const data = jwt.decode(cookies["auth-token"], jwtSecretKey);
 
     if(!data){
         console.error("Usuário não autenticado!");
