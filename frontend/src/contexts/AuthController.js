@@ -12,9 +12,13 @@ export async function getUser() {
 
 export async function LoginRequest(email, senha, checkbox) {
     try {
-        const request = await api.post("login", { email, senha, checkbox });
-        return request.data
+        const {nome, email, token} = await api.post("login", { email, senha, checkbox });
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        
+        return { nome, email }
+
     } catch (error) {
+        console.log(error)
         return null;
     }
 }

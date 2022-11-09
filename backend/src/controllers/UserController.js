@@ -6,12 +6,22 @@ const slugification = require("../utils/slugfication");
 
 async function list(_req, res) {
     const result = await prisma.usuarios.findMany();
+    const token = _req.header('Authorization').split(' ')[1]
 
-    return res.status(200).json(result);
+    try {
+        jwt.verify(token, process.env.JWT_SECRET_KEY, )
+        
+        return res.status(200).json(result);
+    } catch (error) {
+        console.log(error)
+        return res.status(401).send();
+    }
+
 }
 
 async function show(req, res) {
     const { id } = req.params;
+    
 
     const result = await prisma.usuarios.findUnique({
         where: { id: id },
@@ -60,7 +70,7 @@ async function signIn(req, res) {
         secure: true
     });
 
-    const userInfo = { nome:user.nome, email:user.email, };
+    const userInfo = {nome:user.nome, email:user.email, token:token}
 
     return res.status(200).json(userInfo);
 }

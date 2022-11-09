@@ -1,4 +1,5 @@
 import "./style.css";
+import ReactTimeAgo from 'react-time-ago';
 import { FiUser, FiClock } from "react-icons/fi";
 
 export const CardVaga = (props) => {
@@ -8,7 +9,7 @@ export const CardVaga = (props) => {
       <div id="vaga-info">
         <div id="row-vaga-info">
           <FiClock />
-          <p>Aberto há {props.dias} dias</p>
+          <p>Aberto <ReactTimeAgo date={props.date} /> </p>
         </div>
         <div id="row-vaga-info">
           <FiUser />

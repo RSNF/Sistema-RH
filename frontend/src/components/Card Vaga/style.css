@@ -5,7 +5,7 @@
   height: 150px;
   align-items: center;
   background-color: var(--neutral50);
-  border: 2px solid #000;
+  border: 2px solid var(--neutral700);
   border-radius: 20px;
 }
 

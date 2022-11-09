@@ -9,7 +9,7 @@
   border-top: 8px solid var(--primary-success500);
   border-radius: 10px;
   box-shadow: 5px 5px 10px var(--neutral300);
-  margin: 10px;
+  margin: 10px 5px 10px 0px;
 }
 
 #container-title {

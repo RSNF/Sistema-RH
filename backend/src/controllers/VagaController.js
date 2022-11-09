@@ -4,6 +4,9 @@ const slugification = require("../utils/slugfication");
 
 async function list(_req, res) {
     const result = await prisma.vagas.findMany({
+        orderBy: {
+            updated_at: 'desc',
+        },
         include: {
             candidatos: true
         }

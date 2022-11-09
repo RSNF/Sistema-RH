@@ -1,5 +1,7 @@
 node_modules
 .env
+*.sqlite
+*.sql
 rh.db
 rh.sqlite
 rh.db-journal
