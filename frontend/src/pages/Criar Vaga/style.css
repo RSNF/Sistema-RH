@@ -1,0 +1,73 @@
+.main-div-criar-vaga {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.main-div-criar-vaga > h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-success500);
+}
+
+.main-div-criar-vaga > label {
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.main-div-criar-vaga > textarea {
+  resize: none;
+  max-width: 425px;
+  width: 100%;
+  padding: 5px;
+  border: 2px solid var(--neutral400);
+  border-radius: 5px;
+  padding-left: 5px;
+  caret-color: var(--primary-success500);
+}
+
+.main-div-criar-vaga > #div-btn {
+  display: flex;
+  flex-direction: row;
+  max-width: 27.5rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.main-div-criar-vaga > #div-btn > button {
+  width: 35%;
+  border-radius: 5px;
+  border: none;
+  color: var(--neutral700);
+  background-color: var(--neutral200);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.main-div-criar-vaga > #div-btn > button:hover {
+  background-color: var(--neutral300);
+}
+
+.main-div-criar-vaga > #div-btn > #create-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  color: var(--neutral50);
+  background-color: var(--primary-success700);
+}
+
+.main-div-criar-vaga > #div-btn > #create-button:hover {
+  background-color: var(--primary-success800);
+}
+
+#create-button > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 5px;
+}
+

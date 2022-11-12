@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { SideBar } from "../../components/SideBar";
-import { Footer } from "../../components/Footer";
 import "./style.css";
+import { SideBar } from "../../components/SideBar";
 import { Overview } from "../Overview";
 import { CadastrarCandidato } from '../Cadastrar Candidato';
 import { RevisarCandidato } from '../Revisar Candidato';
 import { Configuracoes } from '../Configuracoes';
+import { Footer } from "../../components/Footer";
+import { CriarVaga } from '../Criar Vaga';
+import { ObjetivosVaga } from '../Objetivos Vaga';
 
 export const Dashboard = () => {
   const [dashboardContent, setContent] = useState('Overview')
@@ -14,13 +16,19 @@ export const Dashboard = () => {
     <main className="main-dashboard">
       <SideBar  dashboardContent={dashboardContent} setContent={setContent}/>
       <div className="content">
-        <h1>{dashboardContent === 'Overview' ? 'Dashboard' : dashboardContent}</h1>
-        {dashboardContent === 'Overview' && <Overview/>}
-        {dashboardContent === 'Cadastrar candidatos' && <CadastrarCandidato/>}
-        {dashboardContent === 'Revisar candidatos' && <RevisarCandidato/>}
-        {dashboardContent === 'Configurações' && <Configuracoes/>}
+        <div>
+          <h1>{dashboardContent === 'Overview' ? 'Dashboard' : dashboardContent}</h1>
+          {dashboardContent === 'Overview' && <Overview/>}
+          {dashboardContent === 'Cadastrar candidatos' && <CadastrarCandidato/>}
+          {dashboardContent === 'Revisar candidatos' && <RevisarCandidato/>}
+          {dashboardContent === 'Configurações' && <Configuracoes/>}
+          {dashboardContent === 'Criar vaga' && <CriarVaga/>}
+          {dashboardContent === 'Objetivos da vaga' && <ObjetivosVaga/>}
+        </div>
         <Footer />
       </div>
+      
     </main>
+    
   );
 };

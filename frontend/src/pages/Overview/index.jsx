@@ -17,7 +17,7 @@ export const Overview = () => {
 
   useEffect(() => {
     fetchVagas()
-  }, [vagas])
+  }, [])
 
   return (
     <div className="main-content">
@@ -26,7 +26,7 @@ export const Overview = () => {
         {vagas && (vagas.lenght > 1 ? (<CardVaga title={vagas[1].titulo} date={vagas[1].created_at} numCandidatos={vagas[1].candidatos.length} />) : null)}
       </ContainerOverview>
 
-      <ContainerOverview title="Atividades Recentes nas Vagas" >
+      <ContainerOverview title="Avaliações pendentes" >
         <CardCandInfo nome="João da Silva"  profissao="Operador" />
         <CardCandInfo nome="João da Silva"  profissao="Operador" enviar={true} />
         <CardCandInfo nome="João da Silva"  profissao="Operador" />

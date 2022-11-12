@@ -12,7 +12,11 @@
 	overflow-y: scroll;
 }
 
-.content > h1 {
+.content > div > h1 {
 	font-weight: 700;
 	color: var(--primary-success800);
+}
+
+.content > div {
+	height: 100%;
 }

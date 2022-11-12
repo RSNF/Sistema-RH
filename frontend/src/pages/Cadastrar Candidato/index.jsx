@@ -14,7 +14,7 @@ const schema = yup
     email: yup
       .string()
       .email("Deve ser um email. Ex: email@example.com")
-      .required("o email é obrigatório!"),
+      .required("O email é obrigatório!"),
     tel: yup
       .string()
       .required("O número de telefone é obrigatório!")

@@ -10,10 +10,26 @@ export const Slider = (props) => {
         min="0"
         max="4"
         step="0.1"
-        defaultValue="2"
+        defaultValue={props.defaultValue}
         onChange={props.onChange}
+        disabled={props.disabled}
       />
       <span>{props.label2}</span>
+
+      {props.vagaSlider ? (
+        <div className="vaga-slider">
+          <input
+            type="range"
+            id="vaga-range"
+            min="0"
+            max="4"
+            disabled={true}
+            step="0.1"
+            defaultValue={props.defaultValueVaga}
+          />
+        </div>
+      ) : null}
+
       <div className="slider-line-steps">
         <div id="steps"></div>
         <div id="steps"></div>

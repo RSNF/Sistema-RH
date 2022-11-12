@@ -45,6 +45,7 @@ export const Input = (props) => {
         onChange={props.onChange}
         value={props.value}
         defaultValue={props.defaultValue ?? ''}
+        maxLength={props.maxLength}
       />
       {props.type === "password" && EyePassword()}
       

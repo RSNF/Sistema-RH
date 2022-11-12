@@ -48,6 +48,34 @@
     background-color: var(--neutral500);
 }
 
+.vaga-slider {
+    width: 45%;
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.vaga-slider > #vaga-range {
+    position: relative;
+    padding: 0;
+    height: 0.2rem;
+    border-radius: 10px;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    z-index: 1;
+}
+
+.slider-div #vaga-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 100%;
+    background-color: var(--error500);
+}
+
 @media screen and (min-width: 720px) {
     .slider-div > span {
         width: 14rem;
@@ -62,5 +90,9 @@
         width: 0.18rem;
         height: 1.4rem;
         background-color: var(--neutral500);
+    }
+
+    .vaga-slider {
+        width: 49%;
     }
 }
