@@ -4,6 +4,7 @@ import {
   CreateUserRequest,
   getUser,
   LogOutRequest,
+  RegisterCandRequest
 } from "./AuthController";
 
 export const AuthContext = createContext({});
@@ -44,13 +45,14 @@ export function AuthProvider({ children }) {
     return response;
   }
 
-  async function registerCand({name, emaail, tel}){
-    
+  async function registerCand({name, email, tel}){
+    const response = await RegisterCandRequest(name, email, tel);
+    return response;
   }
 
   return (
     <AuthContext.Provider
-      value={{ user, isAuthenticated, signIn, createUser, logOut }}
+      value={{ user, isAuthenticated, signIn, createUser, logOut, registerCand }}
     >
       {children}
     </AuthContext.Provider>

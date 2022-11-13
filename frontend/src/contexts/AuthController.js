@@ -35,6 +35,5 @@ export async function CreateUserRequest(nome, email, senha) {
 
 export async function RegisterCandRequest(nome, email, tel) {
     
-    
-        
+    return await api.post("/candidatos", { nome, email, tel });
 }

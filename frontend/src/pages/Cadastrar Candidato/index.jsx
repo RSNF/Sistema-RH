@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Input } from "../../components/Input/index";
 import { useAuth } from "../../contexts/useAuth";
-import { useCandidato } from "../../contexts/candidato/useCandidato";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -32,12 +31,11 @@ export const CadastrarCandidato = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   const auth = useAuth();
-  const candidato = useCandidato();
   const navigate = useNavigate();
 
   async function handleRegisterCand(data) {
     try {
-      await candidato.createCandidatoRequest(data);
+      await auth.registerCand(data);
     } catch (error) {
       alert(error?.request.statusText);
       console.log(error?.request.statusText);

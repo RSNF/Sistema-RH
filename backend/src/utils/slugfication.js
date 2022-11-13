@@ -3,6 +3,8 @@ const prisma = require("../../prisma/singleton");
 
 async function slugification(table, value) {
 
+    console.log(value);
+
     let slug = slugify(value, { lower: true });
 
     let count = 0;
