@@ -1,18 +1,24 @@
 import "./style.css";
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FiChevronRight } from "react-icons/fi";
 import { Input } from "../../components/Input";
 
-const schema = yup.object({
-  titulo: yup.string().required('O título é obrigatório!'),
-  descricao: yup.string().required('Insira um descrição para a vaga.'),
-}).required();
+const schema = yup
+  .object({
+    titulo: yup.string().required("O título é obrigatório!"),
+    descricao: yup.string().required("Insira um descrição para a vaga."),
+  })
+  .required();
 
 export const CriarVaga = () => {
-  const { register, handleSubmit, formState:{ errors } } = useForm({resolver: yupResolver(schema)});
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ resolver: yupResolver(schema) });
 
   return (
     <div className="main-div-criar-vaga">
@@ -41,11 +47,7 @@ export const CriarVaga = () => {
       {<span id="input-error">{errors?.descricao?.message}</span> ?? null}
 
       <div id="div-btn">
-        <button
-          onClick={handleSubmit()}
-        >
-          Cancelar
-        </button>
+        <button onClick={() => reset()}>Cancelar</button>
 
         <button type="submit" id="create-button">
           {" "}

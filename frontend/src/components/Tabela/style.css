@@ -1,0 +1,102 @@
+.table-main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 715px;
+  max-width: 1280px;
+  background-color: #fff;
+  padding: 1.5rem 0.5rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--neutral300);
+}
+
+.tabela {
+  width: 95%;
+  overflow-x: scroll;
+  border-collapse: collapse;
+}
+
+.tabela > thead {
+  padding: 0.5rem;
+}
+
+.tabela tr {
+  border-bottom: 2px solid var(--neutral300);
+}
+
+.tabela > thead > tr > th {
+  padding: 1rem;
+  margin-right: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  color: var(--neutral600);
+}
+
+.tabela > tbody > tr > td {
+  height: 2rem;
+  max-width: 15rem;
+  padding: 0.8rem;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+td > span {
+  max-width: 15rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+td > span > input {
+  width: 1.2rem;
+  height: 1.5rem;
+  margin-right: 5px;
+}
+
+td > #status {
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+  color: var(--primary-success800);
+  background-color: var(--primary-success200);
+  border-radius: 5px;
+}
+
+.tabela > tbody > tr > td > button {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem 0.6rem;
+  background-color: var(--primary-success700);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.tabela > tbody > tr > td > button:hover {
+  background-color: var(--primary-success900);
+}
+
+.tabela #btn-visualizar {
+  width: 10rem;
+}
+
+input[type="radio"] {
+  display: flex;
+  align-items: flex-end;
+  width: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  accent-color: var(--primary-success600);
+}
+
+

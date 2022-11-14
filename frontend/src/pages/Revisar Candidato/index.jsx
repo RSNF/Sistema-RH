@@ -1,7 +1,14 @@
 import "./style.css";
 import { Slider } from "../../components/Slider";
+import { Tabela } from "../../components/Tabela";
 
 export const RevisarCandidato = () => {
+  const data = [
+    {nome: 'Patrick Mota', email: 'patrick@email.com', status: 'Feito', afinidade: 8, nota: 9},
+    {nome: 'Raimundo Santana', email: 'raimundo@email.com', status: 'Pendente', afinidade: 8.5, nota: 8},
+    {nome: 'Natanias Souza', email: 'natan@email.com', status: 'Feito', afinidade: 7, nota: 8}
+  ]
+
   return (
     <div className="revisar-cand-main">
       <h2>Vaga: Designer</h2>
@@ -49,28 +56,7 @@ export const RevisarCandidato = () => {
       </div>
 
       <h2>Candidatos</h2>
-      <div className="tabela">
-        <div id="cabecalho">
-          <span id="nome">Nome</span>
-          <span id="email">Email</span>
-          <span id="status">Status do Questionário</span>
-          <span id="afinidade">Afinidade com a vaga</span>
-          <span id="nota">Nota do Questionário</span>
-          <span id="entrevista">Entrevistar</span>
-          <span id="visualizar">Visualizar</span>
-        </div>
-        <div>
-          <div id="tabela-row">
-            <span><input type="radio" name="" id="" /> Fulano da Silva</span>
-            <span>example@email.com</span>
-            <span>Feito</span>
-            <span>10</span>
-            <span>10</span>
-            <button>Sim</button>
-            <button>Visualizar</button>
-          </div>
-        </div>
-      </div>
+      <Tabela data={data} />
     </div>
   );
 };

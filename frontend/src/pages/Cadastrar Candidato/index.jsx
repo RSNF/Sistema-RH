@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import { Input } from "../../components/Input/index";
 import { useAuth } from "../../contexts/useAuth";
@@ -29,13 +30,28 @@ export const CadastrarCandidato = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(schema) });
+
+  const notify = () =>
+    toast.success("Candidato cadastrado com sucesso!!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
   const auth = useAuth();
-  const navigate = useNavigate();
 
   async function handleRegisterCand(data) {
     try {
       await auth.registerCand(data);
+      notify();
+      reset();
     } catch (error) {
       alert(error?.request.statusText);
       console.log(error?.request.statusText);
@@ -74,13 +90,7 @@ export const CadastrarCandidato = () => {
         />
 
         <div>
-          <button
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            Cancelar
-          </button>
+          <button onClick={() => reset()}>Cancelar</button>
 
           <button type="submit" id="create-button">
             {" "}
@@ -88,6 +98,7 @@ export const CadastrarCandidato = () => {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };
