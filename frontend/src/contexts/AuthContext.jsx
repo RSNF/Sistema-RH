@@ -4,7 +4,8 @@ import {
   CreateUserRequest,
   getUser,
   LogOutRequest,
-  RegisterCandRequest
+  RegisterCandRequest,
+  CreateVagaRequest
 } from "./AuthController";
 
 export const AuthContext = createContext({});
@@ -50,9 +51,14 @@ export function AuthProvider({ children }) {
     return response;
   }
 
+  async function createVaga({ titulo, descricao, objetivos, email }) {
+    const response = await CreateVagaRequest(titulo, descricao, objetivos, email);
+    return response;
+  }
+
   return (
     <AuthContext.Provider
-      value={{ user, isAuthenticated, signIn, createUser, logOut, registerCand }}
+      value={{ user, isAuthenticated, signIn, createUser, logOut, registerCand, createVaga }}
     >
       {children}
     </AuthContext.Provider>

@@ -37,3 +37,12 @@ export async function RegisterCandRequest(nome, email, tel) {
     
     return await api.post("/candidatos", { nome, email, tel });
 }
+
+export async function CreateVagaRequest(titulo, descricao, objetivos, email) {
+
+    const user =  await api.get("check").then(response => {
+        return response.data;
+    })
+
+    return await api.post(`/vagas/:${user.id}`, { titulo, descricao, objetivos, email })
+}

@@ -8,6 +8,7 @@ import { Configuracoes } from '../Configuracoes';
 import { Footer } from "../../components/Footer";
 import { CriarVaga } from '../Criar Vaga';
 import { ObjetivosVaga } from '../Objetivos Vaga';
+import { AdicionarCandidatos } from '../Adicionar Candidatos';
 
 export const Dashboard = () => {
   const [dashboardContent, setContent] = useState('Overview')
@@ -24,6 +25,7 @@ export const Dashboard = () => {
           {dashboardContent === 'Configurações' && <Configuracoes/>}
           {dashboardContent === 'Criar vaga' && <CriarVaga/>}
           {dashboardContent === 'Objetivos da vaga' && <ObjetivosVaga/>}
+          {dashboardContent === 'Adicionar candidatos' && <AdicionarCandidatos/>}
         </div>
         <Footer />
       </div>

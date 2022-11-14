@@ -179,7 +179,7 @@ async function check(req, res) {
 
     delete user.senha;
 
-    const userInfo = {nome:user.nome, email:user.email}
+    const userInfo = { id: data.id, nome: user.nome, email: user.email}
 
     return res.status(202).send(userInfo);
 }

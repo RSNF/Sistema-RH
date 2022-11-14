@@ -49,7 +49,7 @@ export const CriarVaga = () => {
       <div id="div-btn">
         <button onClick={() => reset()}>Cancelar</button>
 
-        <button type="submit" id="create-button">
+        <button type="submit" id="create-button" onClick={handleSubmit()}>
           {" "}
           <FiChevronRight /> Próxima etapa
         </button>
