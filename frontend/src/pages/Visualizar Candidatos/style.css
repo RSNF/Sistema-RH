@@ -1,0 +1,61 @@
+.objetivos-div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 35rem;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  box-shadow: 5px 5px 10px var(--neutral300);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-success500);
+}
+
+.objetivos-main-div > #div-btn {
+  display: flex;
+  flex-direction: row;
+  max-width: 27.5rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.objetivos-main-div > #div-btn > button {
+  width: 35%;
+  border-radius: 5px;
+  border: none;
+  color: var(--neutral700);
+  background-color: var(--neutral200);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.objetivos-main-div > #div-btn > button:hover {
+  background-color: var(--neutral300);
+}
+
+.objetivos-main-div > #div-btn > #create-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  color: var(--neutral50);
+  background-color: var(--primary-success700);
+}
+
+.objetivos-main-div > #div-btn > #create-button:hover {
+  background-color: var(--primary-success800);
+}
+
+#create-button > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 5px;
+}
+
