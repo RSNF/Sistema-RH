@@ -1,8 +1,14 @@
-.objetivos-div {
+.revisar-cand-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.revisar-cand-div {
   display: flex;
   flex-direction: column;
   position: relative;
   max-width: 35rem;
+  margin-bottom: 3rem;
   background-color: #fff;
   border-radius: 10px;
   padding: 0.5rem 0;
@@ -14,7 +20,46 @@ h2 {
   color: var(--primary-success500);
 }
 
-.objetivos-main-div > #div-btn {
+#cand-span {
+  margin-bottom: 1rem;
+  padding-top: 10px;
+}
+
+.tabela {
+  display: flex;
+  flex-direction: column;
+  min-width: 715px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--neutral300);
+  overflow-x: scroll;
+}
+
+.tabela > #cabecalho {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: 2px solid var(--neutral300);
+  padding: 0.5rem;
+}
+
+.tabela > #cabecalho > span {
+  padding: 0 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--neutral600);
+}
+
+#tabela-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: 2px solid var(--neutral300);
+  padding: 0.5rem;
+}
+
+.revisar-cand-main > #div-btn {
   display: flex;
   flex-direction: row;
   max-width: 27.5rem;
@@ -22,7 +67,7 @@ h2 {
   margin-top: 1.5rem;
 }
 
-.objetivos-main-div > #div-btn > button {
+.revisar-cand-main > #div-btn > button {
   width: 35%;
   border-radius: 5px;
   border: none;
@@ -32,11 +77,11 @@ h2 {
   transition: all 0.3s;
 }
 
-.objetivos-main-div > #div-btn > button:hover {
+.revisar-cand-main > #div-btn > button:hover {
   background-color: var(--neutral300);
 }
 
-.objetivos-main-div > #div-btn > #create-button {
+.revisar-cand-main > #div-btn > #create-button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,7 +94,7 @@ h2 {
   background-color: var(--primary-success700);
 }
 
-.objetivos-main-div > #div-btn > #create-button:hover {
+.revisar-cand-main > #div-btn > #create-button:hover {
   background-color: var(--primary-success800);
 }
 
@@ -58,4 +103,3 @@ h2 {
   height: 1.5rem;
   margin-right: 5px;
 }
-
