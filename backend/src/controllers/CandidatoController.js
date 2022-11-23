@@ -53,6 +53,7 @@ async function create(req, res) {
 
 async function createNoVaga(req, res) {
     const { nome, email, tel } = req.body;
+    
     const slug = await slugification("Candidatos", nome);
     const created_at = new Date().toISOString();
     const updated_at = new Date().toISOString();
@@ -63,6 +64,14 @@ async function createNoVaga(req, res) {
             slug: slug,
             nome: nome,
             email: email,
+            perfil: JSON.stringify(
+                {
+                    colOrInd: (Math.random() * (1 - 0)).toFixed(1),
+                    resOrSoc: (Math.random() * (1 - 0)).toFixed(1),
+                    IntOrPac: (Math.random() * (1 - 0)).toFixed(1),
+                    ImpOrVig: (Math.random() * (1 - 0)).toFixed(1)
+                }
+            ),
             tel: tel,
             created_at: created_at,
             updated_at: updated_at
