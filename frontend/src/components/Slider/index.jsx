@@ -1,10 +1,13 @@
 import "./style.css";
 
 export const Slider = (props) => {
+  
   return (
     <div className="slider-div">
       <span>{props.label1}</span>
       <input
+        {...props.register}
+        name={props.name}
         type="range"
         id="range"
         min="0"

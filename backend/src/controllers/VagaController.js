@@ -3,6 +3,23 @@ const crypto = require("crypto");
 const slugification = require("../utils/slugfication");
 
 async function list(_req, res) {
+    const { take } = _req.params
+    console.log(take)
+
+    if(Number(take)) {
+        const result = await prisma.vagas.findMany({
+            orderBy: {
+                updated_at: 'desc',
+            },
+            include: {
+                candidatos: true
+            },
+            take: Number(take)
+        });
+
+        return res.status(200).json(result);
+    }
+
     const result = await prisma.vagas.findMany({
         orderBy: {
             updated_at: 'desc',
@@ -50,6 +67,7 @@ async function create(req, res) {
     // Variável email dever ser um array
     const { userId } = req.params;
     const { titulo, descricao, objetivos, email } = req.body;
+    console.log(email)
     const slug = await slugification("Vagas", titulo);
     const created_at = new Date().toISOString();
     const updated_at = new Date().toISOString();
@@ -60,7 +78,9 @@ async function create(req, res) {
     for (const e of email) {
         result = await prisma.candidatos.findFirst(
             {
-                where: { email: e },
+                where: {
+                    email: e,
+                },
                 select: {
                     slug: true
                 }
@@ -77,6 +97,7 @@ async function create(req, res) {
             return JSON.stringify(obj) === _value;
         });
     });
+    // console.log(slugs)
 
     await prisma.vagas.create(
         {
@@ -85,9 +106,9 @@ async function create(req, res) {
                 titulo: titulo,
                 slug: slug,
                 candidatos: {
-                    connect: slugs
+                    connect: slugs 
                 },
-                usuario: {
+                criador: {
                     connect: { id: userId }
                 },
                 descricao: descricao,
@@ -97,6 +118,7 @@ async function create(req, res) {
             }
         }
     ).catch(async (_e) => {
+        console.log(_e)
         res.statusMessage = "Something went wrong!";
         res.statusCode = 500;
     });

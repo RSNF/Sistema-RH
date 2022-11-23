@@ -8,6 +8,20 @@ async function list(_req, res) {
     return res.status(200).json(result);
 }
 
+async function listByVaga(_req, res) {
+    const { vagaId }  = _req.params;
+    const result = await prisma.vagas.findUnique({
+        where: {
+            id: vagaId,
+        },
+        select: {
+            candidatos: true,
+        }
+    });
+
+    return res.status(200).json(result);
+}
+
 async function show(req, res) {
     const { id } = req.params;
 
@@ -77,6 +91,7 @@ async function createNoVaga(req, res) {
             updated_at: updated_at
         }
     }).catch(async (_e) => {
+        console.log(_e)
         res.statusMessage = "Something went wrong when creating!";
         res.statusCode = 500;
     })
@@ -123,6 +138,7 @@ async function remove(req, res) {
 
 module.exports = {
     list,
+    listByVaga,
     show,
     create,
     createNoVaga,

@@ -12,7 +12,7 @@ export async function getUser() {
 
 export async function LoginRequest(email, senha, checkbox) {
     try {
-        const {nome, email, token} = await api.post("login", { email, senha, checkbox });
+        const {nome, token} = await api.post("login", { email, senha, checkbox });
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         
         return { nome, email }
@@ -30,11 +30,5 @@ export async function LogOutRequest() {
 export async function CreateUserRequest(nome, email, senha) {
     
     return await api.post("users", { nome, email, senha });
-        
-}
-
-export async function RegisterCandRequest(nome, email, tel) {
-    
-    
         
 }

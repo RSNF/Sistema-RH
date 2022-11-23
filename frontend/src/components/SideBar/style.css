@@ -59,7 +59,7 @@
 }
 
 li>#selected {
-    transition: ease-in background-color .4s;
+    transition: ease-in background-color .3s;
     background-color: var(--primary-success400);
 }
 

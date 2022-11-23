@@ -1,29 +1,31 @@
 import './style.css'
 import { useEffect } from 'react';
-import api from '../../services/api'
 import { CardVaga } from "../../components/Card Vaga";
 import { ContainerOverview } from "../../components/Container Overview";
 import { CardCandInfo } from '../../components/Card Cand Info';
 import { useState } from 'react';
+import { useAuth } from '../../contexts/useAuth';
 
 export const Overview = () => {
-
+  const auth = useAuth()
   const [vagas, setVagas] = useState()
 
+  // eslint-disable-next-line 
   async function fetchVagas() {
-    const allVagas = await api.get('/vagas');
+    const allVagas = await auth.getVagas(2);
     setVagas(allVagas.data)
   }
 
   useEffect(() => {
+    // eslint-disable-next-line 
     fetchVagas()
   }, [])
 
   return (
     <div className="main-content">
       <ContainerOverview title="Atividades Recentes nas Vagas" flexRow={true} >
-        {vagas && <CardVaga title={vagas[0].titulo} date={vagas[0].created_at} numCandidatos={vagas[0].candidatos.length} />}
-        {vagas && (vagas.lenght > 1 ? (<CardVaga title={vagas[1].titulo} date={vagas[1].created_at} numCandidatos={vagas[1].candidatos.length} />) : null)}
+        {vagas && vagas.map(vaga => <CardVaga title={vaga.titulo} date={vaga.created_at} numCandidatos={vaga.candidatos.length} />)}
+       
       </ContainerOverview>
 
       <ContainerOverview title="Avaliações pendentes" >

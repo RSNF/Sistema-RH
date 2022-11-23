@@ -10,9 +10,9 @@ export const ProtectedLayout = ({ children }) => {
     if (parts.length === 2) return parts.pop().split(";").shift();
   }
   
-  // if (!auth.isAuthenticated && !getCookie('auth-token')) {
-  //   return <Navigate to="/login" />;
-  // }
+  if (!auth.isAuthenticated && !getCookie('auth-token')) {
+    return <Navigate to="/login" />;
+  }
   
   return children;
 };

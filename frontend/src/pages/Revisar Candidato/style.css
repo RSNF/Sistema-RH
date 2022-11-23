@@ -15,9 +15,25 @@
     box-shadow: 5px 5px 10px var(--neutral300);
 }
 
-h2 {
+.select-vagas {
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.select-vagas > label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 1rem;
     color: var(--primary-success500);
+}
+
+.select-vagas > select {
+    padding: 0.3rem 1rem;
+    border-radius: 8px;
+    border: 2px solid var(--primary-success600);
+    color: var(--primary-success800);
+    font-weight: 600;
 }
 
 #cand-span {
@@ -25,36 +41,3 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.tabela {
-    display: flex;
-    flex-direction: column;
-    min-width: 715px;
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px var(--neutral300);
-    overflow-x: scroll;
-}
-
-.tabela > #cabecalho {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border-bottom: 2px solid var(--neutral300);
-    padding: 0.5rem;
-}
-
-.tabela > #cabecalho > span {
-    padding: 0 0.8rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--neutral600);
-}
-
-#tabela-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border-bottom: 2px solid var(--neutral300);
-    padding: 0.5rem;
-}

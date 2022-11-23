@@ -10,9 +10,19 @@ const schema = yup.object({
   descricao: yup.string().required('Insira um descrição para a vaga.'),
 }).required();
 
-export const CriarVaga = () => {
-  const { register, handleSubmit, formState:{ errors } } = useForm({resolver: yupResolver(schema)});
+export const CriarVaga = ({ stepData, setStepData, setContent }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ resolver: yupResolver(schema) });
 
+  function handleSendData(data) {
+    console.log(data)
+    setStepData(data)
+    setContent('Objetivos da vaga')
+  }
 
   return (
     <div className="main-div-criar-vaga">
@@ -24,6 +34,7 @@ export const CriarVaga = () => {
         type="text"
         name="titulo"
         placeholder="Título da Vaga"
+        defaultValue={stepData && stepData.titulo}
         autofocus={true}
         maxLength={30}
         inputError={errors?.titulo?.message}
@@ -33,6 +44,7 @@ export const CriarVaga = () => {
       <textarea
         {...register("descricao")}
         name="descricao"
+        defaultValue={stepData && stepData.descricao}
         cols="20"
         rows="8"
         maxLength={1000}
@@ -42,12 +54,12 @@ export const CriarVaga = () => {
 
       <div id="div-btn">
         <button
-          onClick={handleSubmit()}
+          onClick={() => {}}
         >
           Cancelar
         </button>
 
-        <button type="submit" id="create-button">
+        <button type="submit" id="create-button" onClick={handleSubmit(handleSendData)}>
           {" "}
           <FiChevronRight /> Próxima etapa
         </button>

@@ -26,6 +26,7 @@ routes.get("/check", userController.check)
 
 // Rotas Candidato
 routes.get("/candidatos", CandidatoController.list);
+routes.get("/candidatos/:vagaId", CandidatoController.listByVaga);
 routes.get("/candidatos/:id", CandidatoController.show);
 routes.post("/candidatos/:vagaId", CandidatoController.create)
 routes.post("/candidatos", CandidatoController.createNoVaga)
@@ -33,7 +34,7 @@ routes.put("/candidatos/:id", CandidatoController.update)
 routes.delete("/candidatos/:id", CandidatoController.remove)
 
 // Rotas Vagas
-routes.get("/vagas", VagaController.list);
+routes.get("/vagas/:take", VagaController.list);
 routes.get("/vagas/:id", VagaController.show);
 routes.post("/vagas/:userId", VagaController.create);
 routes.put("/vagas/:id", VagaController.update)

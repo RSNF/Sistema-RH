@@ -9,7 +9,7 @@ export const CardVaga = (props) => {
       <div id="vaga-info">
         <div id="row-vaga-info">
           <FiClock />
-          <p>Aberto <ReactTimeAgo date={props.date} /> </p>
+          <p>Aberto <ReactTimeAgo date={Date.parse(props.date)} /> </p>
         </div>
         <div id="row-vaga-info">
           <FiUser />

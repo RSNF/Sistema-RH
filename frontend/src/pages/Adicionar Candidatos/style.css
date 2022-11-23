@@ -1,0 +1,96 @@
+
+.section-title {
+  margin-bottom: 1rem;
+  color: var(--primary-success500);
+}
+
+.div-enviar-form {
+  display: flex;
+  flex-direction: row;
+  max-width: 550px;
+  justify-content: space-between;
+}
+
+.div-enviar-form > button {
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 6rem;
+  border: 2px solid var(--neutral200);
+  border-radius: 10px;
+  background-color: var(--neutral50);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 3px 3px 8px var(--neutral400);
+  transition: all .3s;
+}
+
+.div-enviar-form > button > svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary-success600);
+}
+
+.div-enviar-form > button:hover {
+  transform: scale(1.05);
+  background-color: var(--primary-success200);
+}
+
+.main-div-add-cand  label {
+  font-weight: 500;
+}
+
+#emails {
+  margin-top: 5px;
+  margin-bottom: 1rem;
+}
+
+.main-div-add-cand > #div-btn {
+  display: flex;
+  flex-direction: row;
+  max-width: 27.5rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.main-div-add-cand > #div-btn > button {
+  width: 35%;
+  border-radius: 5px;
+  border: none;
+  color: var(--neutral700);
+  background-color: var(--neutral200);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.main-div-add-cand > #div-btn > button:hover {
+  background-color: var(--neutral300);
+}
+
+.main-div-add-cand > #div-btn > #create-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  color: var(--neutral50);
+  background-color: var(--primary-success700);
+}
+
+.main-div-add-cand > #div-btn > #create-button:hover {
+  background-color: var(--primary-success800);
+}
+
+#create-button > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 5px;
+}

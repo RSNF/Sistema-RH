@@ -21,9 +21,10 @@ export const CreateAccount = () => {
 
   async function handleCreateUser(data) {
     try {
+      console.log(data)
       await auth.createUser(data);
-      navigate('/')
-      navigate(0)
+      // navigate('/')
+      // navigate(0)
     } catch (error) {
       alert(error?.request.statusText)
       console.log(error?.request.statusText);

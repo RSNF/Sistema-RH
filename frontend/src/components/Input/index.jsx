@@ -39,6 +39,7 @@ export const Input = (props) => {
         {...props.register}
         type={props.type}
         name={props.name}
+        className={props.className}
         id={props.name}
         placeholder={props.placeholder}
         autoFocus={props.autofocus}

@@ -1,11 +1,59 @@
 import "./style.css";
+import { useAuth } from "../../contexts/useAuth";
 import { Slider } from "../../components/Slider";
+import { Tabela } from "../../components/Tabela";
+import { useEffect, useState } from "react";
 
 export const RevisarCandidato = () => {
+  const auth = useAuth();
+  const [vagas, setVagas] = useState([]);
+  const [selectedVaga, setSelectedVaga] = useState();
+  const [candidatos, setCandidatos] = useState([]);
+
+  async function fetchVagas() {
+    const allVagas = await auth.getVagas()
+    setVagas(allVagas.data);
+  }
+
+  async function fetchCandVagas() {
+    const arrayCand = [];
+    const candByVaga = await auth.candByVaga(selectedVaga ?? null);
+    console.log(candByVaga)
+    candByVaga.map((candidato) =>
+      arrayCand.push({
+        id: candidato.id,
+        nome: candidato.nome,
+        email: candidato.email,
+        perfil: JSON.parse(candidato.perfil),
+        telefone: candidato.tel,
+      })
+    );
+    setCandidatos(arrayCand);
+  }
+
+  useEffect(() => {
+    fetchVagas();
+    fetchCandVagas();
+  }, []);
+
   return (
     <div className="revisar-cand-main">
-      <h2>Vaga: Designer</h2>
-      <span id="cand-span">Candidato: Beltrano da Silva</span>
+      <span className="select-vagas">
+        <label htmlFor="vagas">Selecione uma Vaga:</label>
+        <select
+          name="vagas"
+          id="vagas"
+          onChange={(event) => setSelectedVaga(event.target.value)}
+        >
+          {vagas.map((vaga) => (
+            <option value={vaga.id} key={vaga.id}>
+              {vaga.titulo}
+            </option>
+          ))}
+        </select>
+      </span>
+
+      <span id="cand-span">Candidato: {null}</span>
       <div className="revisar-cand-div">
         <Slider
           label1="Colaborativo"
@@ -14,7 +62,7 @@ export const RevisarCandidato = () => {
           disabled={true}
           vagaSlider={true}
           defaultValue={3.6}
-          defaultValueVaga={1.5}
+          defaultValueVaga={2}
         />
 
         <Slider
@@ -24,7 +72,7 @@ export const RevisarCandidato = () => {
           disabled={true}
           vagaSlider={true}
           defaultValue={0.5}
-          defaultValueVaga={1.0}
+          defaultValueVaga={2}
         />
 
         <Slider
@@ -34,7 +82,7 @@ export const RevisarCandidato = () => {
           disabled={true}
           vagaSlider={true}
           defaultValue={3.9}
-          defaultValueVaga={2.5}
+          defaultValueVaga={2}
         />
 
         <Slider
@@ -44,33 +92,12 @@ export const RevisarCandidato = () => {
           disabled={true}
           vagaSlider={true}
           defaultValue={2.6}
-          defaultValueVaga={2.5}
+          defaultValueVaga={2}
         />
       </div>
 
       <h2>Candidatos</h2>
-      <div className="tabela">
-        <div id="cabecalho">
-          <span id="nome">Nome</span>
-          <span id="email">Email</span>
-          <span id="status">Status do Questionário</span>
-          <span id="afinidade">Afinidade com a vaga</span>
-          <span id="nota">Nota do Questionário</span>
-          <span id="entrevista">Entrevistar</span>
-          <span id="visualizar">Visualizar</span>
-        </div>
-        <div>
-          <div id="tabela-row">
-            <span><input type="radio" name="" id="" /> Fulano da Silva</span>
-            <span>example@email.com</span>
-            <span>Feito</span>
-            <span>10</span>
-            <span>10</span>
-            <button>Sim</button>
-            <button>Visualizar</button>
-          </div>
-        </div>
-      </div>
+      <Tabela data={candidatos} />
     </div>
   );
 };
